@@ -1,0 +1,40 @@
+package com.appdirect.integration.configuration;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AppDAOManagerImpl implements AppDAOManager {
+
+	
+	@Autowired
+	protected AppJdbcTemplate jTemplate= null;
+	
+	public AppDAOManagerImpl() {
+		
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		if(jTemplate != null) {
+			jTemplate.setMaxRows(1000);;
+		}
+		
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		DataSourceContext.clearDataSourceName();
+		jTemplate.destroy();
+		jTemplate = null;
+		
+	}
+
+	@Override
+	public void setJdbcTemplate(AppJdbcTemplate template) {
+		this.jTemplate = template;
+		
+	}
+
+}
