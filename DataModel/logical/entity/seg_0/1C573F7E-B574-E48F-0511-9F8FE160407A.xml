@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1C573F7E-B574-E48F-0511-9F8FE160407A" name="marketPlace">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>marketplace</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="1D16C011-5B42-C808-90FB-2338649D1BB2">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="partnerName" id="AE5A4915-833E-9943-75F0-51E4C9B54A5B">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="baseUrl" id="C8D3795B-E1F5-11D8-13E6-2BEDE5E9460F">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="222D5047-0482-C3E9-276D-3AF131B70370">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="startDate" id="63038F46-840A-4A1D-40DA-5062B4CFBA79">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="endDate" id="6308664B-0A32-EA7E-63D1-DB84C01B21C3">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:17:58 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A93DB022-4F42-F96D-BF20-5F0D68BE87A8" name="marketPlace PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:24:50 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1D16C011-5B42-C808-90FB-2338649D1BB2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

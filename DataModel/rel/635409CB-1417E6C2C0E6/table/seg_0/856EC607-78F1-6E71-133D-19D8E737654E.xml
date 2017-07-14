@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="856EC607-78F1-6E71-133D-19D8E737654E" name="PricingDuration">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>394DE070-E181-8673-91C8-FDD1346D8108</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<abbreviation>pricingDuration</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="1D2EA69B-EBF0-670D-3E96-6D0306D54BE0">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>18626E44-DD44-EFF1-D0D0-B68DC69CB7D9</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="code" id="092F9E0E-16B1-8BD3-8C19-F47FAB1A1CDE">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>B2BD6049-8905-D3E0-DB41-38EC9A4917E1</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="shortDescription" id="B72FD2E5-EC62-5158-44A8-9DD9A42275CC">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>9CF35229-653A-23D7-4DB8-0DE2DC4F362D</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="E4FF6D3B-926E-01AF-EE7A-382A04172F41">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>CC499715-CAF0-80D1-C3AF-5A7D270CF529</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="startDate" id="01778FFF-DA1E-2442-37A4-1B32BF2F383E">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>17F7F071-3F6C-7CA3-9D7A-B07AF3C47307</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="endDate" id="C7A57792-9CDF-74D6-CD08-DA0CF7C18814">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>449571F7-3D0E-D0E9-5202-88AC1559CC78</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F82EAFCC-13DC-9EC8-F6D8-857FB8DF55D9" name="PricingDuration_PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:49:43 UTC</createdTime>
+<generatorID>04D8DEBA-BCB5-68BC-0930-DB88C94FD2E5</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D2EA69B-EBF0-670D-3E96-6D0306D54BE0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

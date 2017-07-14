@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1461E02B-A0D1-692F-EC5C-D21C3ED78FC7" name="Edition">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>edition</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="53C4FE78-181B-33EE-D5F9-C6E79D560757">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="code" id="CFBBD0B1-38EC-1E96-8320-E304A91C5DA7">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="shortDescription" id="171EB59C-0790-63C1-9375-E7EA6AA532F7">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="1C92E732-24DE-E447-BFB5-C9765D8B5B23">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="startDate" id="E4E60EF4-E0D8-55BC-9E68-173F9B3F5159">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="endDate" id="1615A205-2B46-B880-3AA0-5A453A5E4062">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:41:47 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="35193FC0-BEAA-F349-C9D9-728C3F6C0FF0" name="Edition PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:44:04 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>53C4FE78-181B-33EE-D5F9-C6E79D560757</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

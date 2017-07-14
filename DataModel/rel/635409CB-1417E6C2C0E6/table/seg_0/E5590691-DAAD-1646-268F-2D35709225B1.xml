@@ -1,0 +1,262 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E5590691-DAAD-1646-268F-2D35709225B1" name="Order">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>3318E3B2-B748-A470-F6D3-46B978F6205C</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<abbreviation>order</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="orderId" id="E97E86A2-7134-1160-4D76-7AB49767DC9D">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>8DCD2256-2593-50C0-D5AE-742E05DA9552</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="orderTypeId" id="8F403236-D30B-D818-CC90-D4A771390C5A">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>CA844255-F92D-A2CF-CA2F-6812D2B702CB</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC8C204E-05C1-2BC7-5E1C-D56A807EC8F0" referredColumn="80376466-B1D5-ADC0-8AD7-91181C7B8D05"/>
+</associations>
+</Column>
+<Column name="editionId" id="86CD0677-33BA-1BDF-A404-6A3F76C16058">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>52FE8B7B-8BCF-4EE8-5943-EB4B1AA08CBB</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1C72F1AE-5F48-5AED-2D5C-B851987FC9D6" referredColumn="E7034E38-3C1D-F9FC-6EA8-E1D915B22EDD"/>
+</associations>
+</Column>
+<Column name="pricingDurationId" id="AE4CEFF2-5FCC-6D6A-1294-2E601B80DD9B">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>DC11DA0F-E567-22FA-181B-757187427BDD</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E11AB884-4546-8FBD-B5B4-F2905FF53899" referredColumn="1D2EA69B-EBF0-670D-3E96-6D0306D54BE0"/>
+</associations>
+</Column>
+<Column name="startDate" id="2E759E66-7D28-DCEA-A283-B3563E72FE66">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>A2BB2B83-F496-DAB9-4644-91B7E3FB5B69</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getdate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="completionDate" id="FBCB19D6-3B60-2ED1-0DFC-EE09A821FAA6">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>E71AF4CB-A1C3-7E18-26FE-3672DE7883A1</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creatorId" id="38505D94-D0B8-FDD4-E2E8-8E2A014B228B">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>AA997162-CFFB-3982-8B9D-1DBC590215F7</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CED9AEFF-13A8-6B73-779C-8226795CCE36" referredColumn="73A6F478-DB98-1C4C-D340-760DCE5C2E72"/>
+</associations>
+</Column>
+<Column name="companyId" id="33510B2C-2D2E-1883-217D-D7B75253BF29">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 00:02:57 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2BBE76CD-3181-3FFD-362A-0B36C2815750" referredColumn="8B1B4E30-26B8-B334-DCB2-B536FC4EADE3"/>
+</associations>
+</Column>
+<Column name="userId" id="9835300B-D9F9-6293-3068-EF340034374D">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 00:02:57 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A476632-C93F-23D9-3065-10677B81842A" referredColumn="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA"/>
+</associations>
+</Column>
+<Column name="marketPlaceId" id="5A5340F3-9CF3-1BA7-9994-FC10ED49BF68">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>FE9A0F82-4543-1F33-F5BD-5CD71EB023F2</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1032793-54BE-91B5-E60A-AA6413F6413C" referredColumn="37C6DE35-8767-5402-DE6F-1769D1C72D3A"/>
+</associations>
+</Column>
+<Column name="accountId" id="1ABF59BD-51EE-78B5-B24F-53F6C3713857">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-14 03:07:37 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2127883-CFF1-314A-602A-A7285C7E5E71" referredColumn="767A80D7-143F-27C8-42F8-5578C9D9D919"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DEC221F5-5432-4108-C32F-C32C640AF64B" name="Order_PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:50:23 UTC</createdTime>
+<generatorID>C5CBD403-6A9C-C9B7-D33F-4FFBBBCE8FA2</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E97E86A2-7134-1160-4D76-7AB49767DC9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D5239E9C-4F93-F6CF-18B6-F48EE4A8914A" name="Order_PricingDuration_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:54:59 UTC</createdTime>
+<generatorID>04D8DEBA-BCB5-68BC-0930-DB88C94FD2E5</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE4CEFF2-5FCC-6D6A-1294-2E601B80DD9B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DFF11BDC-D21E-D183-8797-6366C12C7751" name="Order_Edition_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:55:42 UTC</createdTime>
+<generatorID>35193FC0-BEAA-F349-C9D9-728C3F6C0FF0</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86CD0677-33BA-1BDF-A404-6A3F76C16058"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88F8FB85-AF1B-D319-7312-C0D0F5A3EB20" name="Order_OrderType_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 03:59:58 UTC</createdTime>
+<generatorID>ACA95F45-43AD-A5FC-4CE6-EB7F335C4524</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F403236-D30B-D818-CC90-D4A771390C5A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D1842C31-2CB5-FA0C-BBC6-78ED35146CB1" name="Order_Creator_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 23:51:52 UTC</createdTime>
+<generatorID>EFD7CE07-403A-A5F0-A77E-8201A3CD5C9F</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38505D94-D0B8-FDD4-E2E8-8E2A014B228B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3588CAAB-AAFD-7857-EC80-D46BC031DB3F" name="Order_Company_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 00:03:07 UTC</createdTime>
+<generatorID>D693164B-AE68-C0E0-1A2D-9E4DBE5B4BA6</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33510B2C-2D2E-1883-217D-D7B75253BF29"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79F4BC72-7A72-1714-73F0-44545D651D9F" name="Order_User_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 00:04:36 UTC</createdTime>
+<generatorID>253E2C8A-FCB6-34BA-35DE-5A8FAE5743FE</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9835300B-D9F9-6293-3068-EF340034374D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7FC5261D-4640-1A38-D671-99F24A23E74F" name="Order_marketPlace_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:27:00 UTC</createdTime>
+<generatorID>A93DB022-4F42-F96D-BF20-5F0D68BE87A8</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A5340F3-9CF3-1BA7-9994-FC10ED49BF68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91A896F2-FEF7-993E-5CB1-CF9A64552C34" name="Order_Account_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-14 03:07:37 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ABF59BD-51EE-78B5-B24F-53F6C3713857"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

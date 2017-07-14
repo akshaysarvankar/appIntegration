@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="46F94C33-216D-E20A-50CA-CED263E9D211" name="User">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>6EC7B8E2-3207-82A3-0AF6-42F43247E49A</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<abbreviation>user</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="userId" id="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>3A5BD405-2ED2-12D7-2331-A89241F495AD</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="firstName" id="9211C105-E647-7169-A30C-689C1A9C0BE3">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>E36E3132-81A8-DC25-7E6B-198C3E4E301D</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lastName" id="E90603A9-7889-45F8-8E79-1B14B20C9BBF">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>9768F7FE-2489-265A-D131-F8D448DBE552</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fullName" id="45BA8B73-71D8-5393-826A-E54A33C89636">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>D41C06B5-58F0-41C7-8E5A-364745AF0785</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="35C3FB04-BE83-BCB7-6E50-8162D755E391">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>377533F7-F096-CBCC-CE07-03C25A732CD7</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="language" id="7F8CCAB0-1917-8178-4CB3-1102610C97B0">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>FD3A1DB0-E0FC-0299-3D1D-D3E411F22F1F</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="locale" id="9B01F8A0-2AF0-890E-797F-CE1AED35B8EC">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>85DD9089-FEA9-39E3-0A72-6026594BC97C</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="openId" id="36F48540-E6FF-AEBF-604B-D2201CC3847D">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>52B55EE7-2A7D-B1D2-C47A-7FEE95897088</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="uuid" id="76DE94F1-093C-A560-8BA9-65689D61FE3C">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>C6901623-7B9C-94CC-1F71-F5D55D1B03F7</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="createdDate" id="8CEC9B0E-5061-2BE0-013B-722FF7A3AC35">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:33:55 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="updateDate" id="40D48BCA-66F9-16F9-82C1-890F312B7F97">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:33:55 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C7E48A3B-C099-EC9A-7980-2D2B558B09D3" name="User_PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:37:57 UTC</createdTime>
+<generatorID>253E2C8A-FCB6-34BA-35DE-5A8FAE5743FE</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

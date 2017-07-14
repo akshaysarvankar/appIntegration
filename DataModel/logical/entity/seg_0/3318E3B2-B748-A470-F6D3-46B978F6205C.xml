@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3318E3B2-B748-A470-F6D3-46B978F6205C" name="Order">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:40:44 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>order</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="orderId" id="8DCD2256-2593-50C0-D5AE-742E05DA9552">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:41:14 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="orderTypeId" id="CA844255-F92D-A2CF-CA2F-6812D2B702CB">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:47:14 UTC</createdTime>
+<generatorID>373C78D4-3D1C-2FA9-58ED-33EC4A119E5B</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>914B9F4C-89A0-FD9C-352F-EF551CDFA512</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="editionId" id="52FE8B7B-8BCF-4EE8-5943-EB4B1AA08CBB">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:41:37 UTC</createdTime>
+<generatorID>03F220E6-EDBF-C063-905A-9F7F763707A6</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>53C4FE78-181B-33EE-D5F9-C6E79D560757</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pricingDurationId" id="DC11DA0F-E567-22FA-181B-757187427BDD">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:43:17 UTC</createdTime>
+<generatorID>F442F7E8-594D-7AD5-1FDD-2FB8B689C98E</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>18626E44-DD44-EFF1-D0D0-B68DC69CB7D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="startDate" id="A2BB2B83-F496-DAB9-4644-91B7E3FB5B69">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:46:02 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getdate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="completionDate" id="E71AF4CB-A1C3-7E18-26FE-3672DE7883A1">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:46:26 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="creatorId" id="AA997162-CFFB-3982-8B9D-1DBC590215F7">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 01:46:48 UTC</createdTime>
+<generatorID>E20354CD-1F40-F593-277E-19613E7FF7EF</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>4665CD32-4DFA-B5AB-2CE5-C50405A88730</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="companyId" id="6D4AB966-D360-09A9-5A04-3B646D81D69F">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:07:23 UTC</createdTime>
+<generatorID>4C965C82-7013-D758-7EF4-7DEA7FF44BEA</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>2710F39A-3DFD-A35A-C050-7F6C4C46EADF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="userId" id="616DF15A-1181-6326-EC8D-458E8F8EE4CE">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:07:23 UTC</createdTime>
+<generatorID>41055AD4-709E-3796-A3BF-DC165406C5E3</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>3A5BD405-2ED2-12D7-2331-A89241F495AD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="marketPlaceId" id="FE9A0F82-4543-1F33-F5BD-5CD71EB023F2">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:25:02 UTC</createdTime>
+<generatorID>F9302BC7-7643-BC3E-0E37-588DFA060235</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>1D16C011-5B42-C808-90FB-2338649D1BB2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="accountId" id="DB5A7DEA-2B86-26D8-4754-65D9B110155A">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-14 03:08:34 UTC</createdTime>
+<generatorID>F685B75D-B19D-8C9B-8BB0-10D2B94D7BA0</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>78389010-1926-551D-2C42-30A7072EDE0A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C5CBD403-6A9C-C9B7-D33F-4FFBBBCE8FA2" name="Order PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-12 02:45:22 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>8DCD2256-2593-50C0-D5AE-742E05DA9552</newElementsIDs>
+<usedAttributes>
+<attributeRef>8DCD2256-2593-50C0-D5AE-742E05DA9552</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

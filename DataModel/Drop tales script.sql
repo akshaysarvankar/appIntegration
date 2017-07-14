@@ -1,0 +1,13 @@
+drop table accountStatus;
+drop table Account;
+drop table CreatorAddress;
+drop table [order];
+drop table creator;
+drop table Edition;
+drop table PricingDuration;
+drop table UserAddressv;
+drop table [User];
+drop table [Status];
+drop table OrderType;
+drop table Company;
+drop table  marketPlace;

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Order_PricingDuration_FK" directorySegmentName="seg_0" id="F442F7E8-594D-7AD5-1FDD-2FB8B689C98E">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:07:23 UTC</createdTime>
+<generatorID>E11AB884-4546-8FBD-B5B4-F2905FF53899</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<sourcePk>04D8DEBA-BCB5-68BC-0930-DB88C94FD2E5</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>394DE070-E181-8673-91C8-FDD1346D8108</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3318E3B2-B748-A470-F6D3-46B978F6205C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

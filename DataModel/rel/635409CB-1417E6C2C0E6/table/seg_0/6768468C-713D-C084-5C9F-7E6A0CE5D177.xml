@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6768468C-713D-C084-5C9F-7E6A0CE5D177" name="marketPlace">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>1C573F7E-B574-E48F-0511-9F8FE160407A</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<abbreviation>marketplace</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="37C6DE35-8767-5402-DE6F-1769D1C72D3A">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>1D16C011-5B42-C808-90FB-2338649D1BB2</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementGenerateTrigger>false</autoIncrementGenerateTrigger>
+</Column>
+<Column name="partnerName" id="771AD85B-45C6-1BBE-DC4C-FF910752A0FA">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>AE5A4915-833E-9943-75F0-51E4C9B54A5B</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="baseUrl" id="BFAD6915-DB79-3C54-5168-F1C2D22C18F9">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>C8D3795B-E1F5-11D8-13E6-2BEDE5E9460F</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="C990EF6B-2145-4051-E1C9-5164442B54CF">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>222D5047-0482-C3E9-276D-3AF131B70370</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="startDate" id="891156A0-9E30-DB24-71AF-328855863EBB">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>63038F46-840A-4A1D-40DA-5062B4CFBA79</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="endDate" id="2997CCEA-5030-ADA8-4798-D2A796AE9827">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>6308664B-0A32-EA7E-63D1-DB84C01B21C3</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E62E89B8-0ED6-0283-6CE6-6486772206DB" name="marketPlace_PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-13 02:26:04 UTC</createdTime>
+<generatorID>A93DB022-4F42-F96D-BF20-5F0D68BE87A8</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="37C6DE35-8767-5402-DE6F-1769D1C72D3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
