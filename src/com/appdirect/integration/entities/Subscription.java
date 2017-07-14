@@ -18,7 +18,7 @@ public abstract class Subscription {
 	public enum Flag {
 		STATELESS, DEVELOPMENT;
 	}
-	private Marketplace marketplace;
+	private MarketPlace marketplace;
 	private String applicationUuid;
 	private Flag flag;
 	private String returnUrl;
@@ -26,10 +26,10 @@ public abstract class Subscription {
 	private Payload payload;
 	private String accountIdentifier;
 	
-	public Marketplace getMarketplace() {
+	public MarketPlace getMarketplace() {
 		return marketplace;
 	}
-	public void setMarketplace(Marketplace marketplace) {
+	public void setMarketplace(MarketPlace marketplace) {
 		this.marketplace = marketplace;
 	}
 	public Creator getCreator() {

@@ -1,9 +1,11 @@
 package com.appdirect.integration.subscription;
 
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -20,7 +22,7 @@ import com.appdirect.integration.subscription.dao.SubscriptionManager;
 
 @Component
 @Scope("request")
-@Path("/")
+@Path("/order")
 public class ApplicationResource extends AppResource {
 
 	@Autowired
@@ -28,9 +30,9 @@ public class ApplicationResource extends AppResource {
 
 	
 	@GET
-	@Path("get")
+	@Path("{id}/get")
 	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-	public Object subscription(@Context UriInfo uri) throws Exception{
+	public Object subscription(@PathParam("id") String orderId,@Context UriInfo uri) throws Exception{
 		Response response = new Response();
 		try {
 			
@@ -48,9 +50,13 @@ public class ApplicationResource extends AppResource {
 	public Response addSubscriptionOrder(SubscriptionOrder order, @Context UriInfo uri) throws Exception{
 		Response response = new Response();
 		try {	
+			if(order == null) {
+				throw new BadRequestException("Subscription order is null");
+			}if(!(order instanceof SubscriptionOrder)) {
+				throw new BadRequestException("Order is not of type Subscription order");
+			}
 			setDataSource();
 			response = subscriptionManager.addSubscriptionOrder(order);
-					
 			return response;
 		}catch(Exception e) {
 			throw new Exception(e.getMessage());

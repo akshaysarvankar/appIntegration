@@ -1,11 +1,19 @@
 package com.appdirect.integration.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @XmlType(name="company")
 @XmlRootElement
 public class Company {
+	
+	@XmlTransient
+	@JsonIgnore
+	private Integer companyId;
+	
 	private String country;
 	private String  name;
 	private String phoneNumber;
@@ -62,6 +70,12 @@ public class Company {
 	}
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+	public Integer getCompanyId() {
+		return companyId;
+	}
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
 }

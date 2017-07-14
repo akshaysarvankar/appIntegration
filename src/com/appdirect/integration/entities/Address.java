@@ -1,11 +1,18 @@
 package com.appdirect.integration.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @XmlType(name="address")
 @XmlRootElement
 public class Address {
+	
+	@XmlTransient
+	@JsonIgnore
+	private String addressId;
 	private String city;
 	private String country;
 	private String state;
@@ -48,6 +55,14 @@ public class Address {
 	}
 	public void setStreet2(String street2) {
 		this.street2 = street2;
+	}
+	@JsonIgnore
+	public String getAddressId() {
+		return addressId;
+	}
+	@JsonIgnore
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
 
 }

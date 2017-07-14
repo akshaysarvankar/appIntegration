@@ -35,7 +35,7 @@ public interface  SubscriptionManager extends AppDAOManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public SubscriptionOrder getSubscriptionByParam(Object...objects) throws Exception;
+	public SubscriptionOrder getSubscriptionByOrderId(Object...objects) throws Exception;
 	
 
 }

@@ -1,11 +1,18 @@
 package com.appdirect.integration.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @XmlType(name="creator")
 @XmlRootElement
 public class Creator {
+	
+	@XmlTransient
+	@JsonIgnore
+	private Integer creatorId;
 	private Address address;
 	private String email;
 	private String language;
@@ -75,6 +82,12 @@ public class Creator {
 	}
 	public void setAttributes(Attribute attributes) {
 		this.attributes = attributes;
+	}
+	public Integer getCreatorId() {
+		return creatorId;
+	}
+	public void setCreatorId(Integer creatorId) {
+		this.creatorId = creatorId;
 	}
 	
 
