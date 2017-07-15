@@ -9,7 +9,7 @@
 <referredTableID>46F94C33-216D-E20A-50CA-CED263E9D211</referredTableID>
 <keyObject>C7E48A3B-C099-EC9A-7980-2D2B558B09D3</keyObject>
 <referredKeyID>C7E48A3B-C099-EC9A-7980-2D2B558B09D3</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>userId</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

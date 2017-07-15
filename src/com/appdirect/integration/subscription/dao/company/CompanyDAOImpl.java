@@ -1,4 +1,4 @@
-package com.appdirect.integration.subscription.dao.creator;
+package com.appdirect.integration.subscription.dao.company;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.KeyHolder;
@@ -15,10 +14,10 @@ import org.springframework.stereotype.Repository;
 
 import com.appdirect.integration.configuration.AppDAOImpl;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
-import com.appdirect.integration.entities.Creator;
+import com.appdirect.integration.entities.Company;
 
-@Repository("CreatorDAO")
-public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
+@Repository("CompanyDAO")
+public class CompanyDAOImpl extends AppDAOImpl implements CompanyDAO {
 	
 	@Override
 	public PreparedStatementCreator createInsertStatement(Object entity) throws Exception {
@@ -27,33 +26,31 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 				try {
-					Creator creator = (Creator) entity;
+					Company company = (Company) entity;
 					int idx=1;
 					PreparedStatement ps = conn.prepareStatement(
-							"INSERT INTO [Creator] ([firstName],[lastName],[fullName],[email],[language],[locale],[openId],[uuid])     VALUES" + 
-							" (? ,? ,? ,? ,? ,? ,? ,?)", new String[] {"[CreatorId]"});
-					if(creator.getFirstName()!= null) ps.setString(idx++,creator.getFirstName());
+							"INSERT INTO [Company] ([name],[phoneNumber],[email],[country],[website],[uuid],[externalId])     VALUES" + 
+							" (? ,? ,? ,? ,? ,? ,?)", new String[] {"[CompanyId]"});
+					
+					if(company.getName()!= null) ps.setString(idx++,company.getName());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(creator.getLastName()!= null) ps.setString(idx++,creator.getLastName());
+					if(company.getPhoneNumber()!= null) ps.setString(idx++,company.getEmail());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(creator.getFullName()!= null) ps.setString(idx++,creator.getFullName());
+					if(company.getEmail()!= null) ps.setString(idx++,company.getEmail());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(creator.getEmail()!= null) ps.setString(idx++,creator.getEmail());
+					if(company.getCountry()!= null) ps.setString(idx++,company.getCountry());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(creator.getLanguage()!= null) ps.setString(idx++,creator.getLanguage());
+					if(company.getWebsite()!= null) ps.setString(idx++,company.getWebsite());
+					else ps.setNull(idx++, java.sql.Types.VARCHAR);
+					 					
+					if(company.getUuid()!= null) ps.setString(idx++,company.getUuid());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(creator.getLocale()!= null) ps.setString(idx++,creator.getLocale());
-					else ps.setNull(idx++, java.sql.Types.VARCHAR);
-					
-					if(creator.getOpenId()!= null) ps.setString(idx++,creator.getOpenId());
-					else ps.setNull(idx++, java.sql.Types.VARCHAR);
-					
-					if(creator.getUuid()!= null) ps.setString(idx++,creator.getUuid());
+					if(company.getExternalId()!= null) ps.setString(idx++,company.getExternalId());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
 					return ps;
@@ -77,10 +74,10 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 	}
 
 	@Override
-	public Creator add(Creator object, AppJdbcTemplate jTemplate) throws Exception {
+	public Company add(Company object, AppJdbcTemplate jTemplate) throws Exception {
 		try{
-			assertNull("Creator cannot be null", object);
-		assertNull("Creator uuid cannot be null", object.getUuid());
+		assertNull("Company cannot be null", object);
+		assertNull("Company uuid cannot be null", object.getUuid());
 		KeyHolder key = insertForPrimaryKey(this, object, jTemplate);
 		return getObject(Integer.valueOf(key.getKey().intValue()), jTemplate);
 		}catch(Exception e) {
@@ -89,7 +86,7 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 	}
 
 	@Override
-	public Creator update(Creator object, AppJdbcTemplate jTemplate) throws Exception {
+	public Company update(Company object, AppJdbcTemplate jTemplate) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -101,21 +98,21 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 	}
 
 	@Override
-	public Creator getObject(Object obj, AppJdbcTemplate jTemplate) throws Exception {
+	public Company getObject(Object obj, AppJdbcTemplate jTemplate) throws Exception {
 		try {
 			assertNull("Id or uuid cannot be null", obj);
-			String query = "SELECT [creatorId],[firstName],[lastName],[fullName],[email],[language],"
-					+ "[locale],[openId],[uuid],[createdDate],[updateDate]  FROM [Creator] where ";
+			String query = "SELECT [companyId],[name],[phoneNumber],[email],[country],[website],[uuid],"
+					+ "[externalId] FROM [Company] where ";
 			if(obj instanceof Integer) {
-				query +=" [creatorId] = ?";
-				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForCreator());
+				query +=" [CompanyId] = ?";
+				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForCompany());
 			}else if (obj instanceof String) {
 				query +=" [uuid] = ?";
-				return jTemplate.queryForObject(query, new Object[] {(String)obj}, getRowMapperForCreator());
+				return jTemplate.queryForObject(query, new Object[] {(String)obj}, getRowMapperForCompany());
 			}
 			return null;
 			}catch(IllegalArgumentException e) {
-				throw new Exception("Invalid arguments in creator get by id"+ obj.toString());
+				throw new Exception("Invalid arguments in Company get by id"+ obj.toString());
 			}catch(EmptyResultDataAccessException e) {
 				return null;
 			}catch(Exception e) {
@@ -123,36 +120,32 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 			}
 	}
 	
-	private RowMapper<Creator> getRowMapperForCreator() {
-		return new RowMapper<Creator>() {
-
+	private RowMapper<Company> getRowMapperForCompany() {
+		return new RowMapper<Company>() {
 			@Override
-			public Creator mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Creator result = new Creator();
-				result.setCreatorId(rs.getInt("creatorId"));
-				if(rs.getObject("firstName")!= null) {
-					result.setFirstName(rs.getString("firstName"));
+			public Company mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Company result = new Company();
+				result.setCompanyId(rs.getInt("CompanyId"));
+				if(rs.getObject("name")!= null) {
+					result.setName(rs.getString("name"));
 				}
-				if(rs.getObject("lastName")!= null) {
-					result.setLastName(rs.getString("lastName"));
-				}
-				if(rs.getObject("fullName")!= null) {
-					result.setFullName(rs.getString("fullName"));
+				if(rs.getObject("phoneNumber")!= null) {
+					result.setPhoneNumber(rs.getString("phoneNumber"));
 				}
 				if(rs.getObject("email")!= null) {
 					result.setEmail(rs.getString("email"));
 				}
-				if(rs.getObject("language")!= null) {
-					result.setLanguage(rs.getString("language"));
+				if(rs.getObject("country")!= null) {
+					result.setCountry(rs.getString("country"));
 				}
-				if(rs.getObject("locale")!= null) {
-					result.setLocale(rs.getString("locale"));
-				}
-				if(rs.getObject("openId")!= null) {
-					result.setOpenId(rs.getString("openId"));
+				if(rs.getObject("website")!= null) {
+					result.setWebsite(rs.getString("website"));
 				}
 				if(rs.getObject("uuid")!= null) {
 					result.setUuid(rs.getString("uuid"));
+				}
+				if(rs.getObject("externalId")!= null) {
+					result.setExternalId(rs.getString("externalId"));
 				}
 				return result;
 			}
@@ -161,7 +154,7 @@ public class CreatorDAOImpl extends AppDAOImpl implements CreatorDAO {
 	}
 
 	@Override
-	public List<Creator> getObjectByCondition(String condition, AppJdbcTemplate jTemplate) throws Exception {
+	public List<Company> getObjectByCondition(String condition, AppJdbcTemplate jTemplate) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

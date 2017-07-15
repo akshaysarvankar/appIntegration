@@ -123,8 +123,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="uuid" id="97D4EB71-A167-91A9-6158-33DD966A7500">
 <createdBy>akshay</createdBy>

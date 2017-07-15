@@ -9,7 +9,7 @@
 <referredTableID>5686AA3F-0073-051A-862F-09E92C7578D7</referredTableID>
 <keyObject>7CB43E20-33B2-BD53-CDEE-67803B5C5BDC</keyObject>
 <referredKeyID>7CB43E20-33B2-BD53-CDEE-67803B5C5BDC</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>companyId</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

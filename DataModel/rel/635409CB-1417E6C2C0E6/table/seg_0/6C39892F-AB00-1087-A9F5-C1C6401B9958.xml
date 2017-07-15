@@ -125,6 +125,19 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="city" id="2B1A08D0-8380-C459-43F8-8B0AB2A1F3FD">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-15 04:50:11 UTC</createdTime>
+<generatorID>86087EF2-6ED9-52E7-CF10-16DF3AE094A4</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="8BDACD9E-607B-8DA8-4DFB-D020988023E3" name="CreatorAddress_PK">

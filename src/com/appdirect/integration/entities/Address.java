@@ -10,9 +10,12 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @XmlRootElement
 public class Address {
 	
+	/**
+	 * This parameter is used to hold value of creatorID for creator address and userId for userAddress
+	 */
 	@XmlTransient
 	@JsonIgnore
-	private String addressId;
+	private Integer id;
 	private String city;
 	private String country;
 	private String state;
@@ -56,13 +59,11 @@ public class Address {
 	public void setStreet2(String street2) {
 		this.street2 = street2;
 	}
-	@JsonIgnore
-	public String getAddressId() {
-		return addressId;
+	public Integer getId() {
+		return id;
 	}
-	@JsonIgnore
-	public void setAddressId(String addressId) {
-		this.addressId = addressId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

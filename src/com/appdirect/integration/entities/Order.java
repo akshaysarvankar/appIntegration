@@ -1,4 +1,5 @@
 package com.appdirect.integration.entities;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -7,14 +8,25 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @XmlType(name="order")
 @XmlRootElement
+@JsonInclude(Include.NON_NULL)
 public class Order {
 
-	
 	private String editionCode;
 	private String pricingDuration;
 	private List<Item> items;
+	
+	@XmlTransient
+	@JsonIgnore
+	private Date startDate;
+	
+	@XmlTransient
+	@JsonIgnore
+	private Date competionDate;
 	
 	@XmlTransient
 	@JsonIgnore
@@ -22,20 +34,21 @@ public class Order {
 	
 	@XmlTransient
 	@JsonIgnore
-	private Integer creatorId;
+	private Integer orderTypeId;
 	
 	@XmlTransient
 	@JsonIgnore
-	private Integer companyId;
+	private Integer creatorId;
 	
-	@XmlTransient
+	
+	/*@XmlTransient
 	@JsonIgnore
 	private Integer editionId;
 	
 	@XmlTransient
 	@JsonIgnore
 	private Integer pricingDurationId;
-	
+	*/
 	@XmlTransient
 	@JsonIgnore
 	private Integer marketPlaceId;
@@ -51,13 +64,7 @@ public class Order {
 	public void setCreatorId(Integer creatorId) {
 		this.creatorId = creatorId;
 	}
-	public Integer getCompanyId() {
-		return companyId;
-	}
-	public void setCompanyId(Integer companyId) {
-		this.companyId = companyId;
-	}
-	public Integer getEditionId() {
+	/*public Integer getEditionId() {
 		return editionId;
 	}
 	public void setEditionId(Integer editionId) {
@@ -69,6 +76,7 @@ public class Order {
 	public void setPricingDurationId(Integer pricingDurationId) {
 		this.pricingDurationId = pricingDurationId;
 	}
+	*/
 	public String getEditionCode() {
 		return editionCode;
 	}
@@ -109,8 +117,62 @@ public class Order {
 	public void setAccountId(Integer accountId) {
 		this.accountId = accountId;
 	}
+	public Integer getOrderTypeId() {
+		return orderTypeId;
+	}
+	public void setOrderTypeId(Integer orderTypeId) {
+		this.orderTypeId = orderTypeId;
+	}
 
-	public enum editionCode{
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getCompetionDate() {
+		return competionDate;
+	}
+	public void setCompetionDate(Date competionDate) {
+		this.competionDate = competionDate;
+	}
+
+	public enum OrderType{
+		SUBSCRIPTION_ORDER(1, "SUBSCRIPTION_ORDER"),
+		SUBSCRIPTION_CHANGE(2, "SUBSCRIPTION_CHANGE"),
+		SUBSCRIPTION_CANCEL(3, "SUBSCRIPTION_CANCEL"),
+		SUBSCRIPTION_NOTICE(4, "SUBSCRIPTION_NOTICE"),
+		USER_ASSIGNMENT(5, "USER_ASSIGNMENT"),
+		USER_UNASSIGNMENT(6, "USER_UNASSIGNMENT"),
+		USER_UPDATED(7, "USER_UPDATED");
+		
+	private final int id;
+	private final String code;
+
+	OrderType(int id, String code) {
+		this.id = id;
+		this.code = code;
+	}
+
+	private int id() {
+		return id;
+	}
+
+	private String code() {
+		return code;
+	}
+	
+	public Integer getId() {
+		return this.id;
+	}
+	
+	public String getCode() {
+		return this.code;
+	}
+	}
+	
+	/*public enum editionCode{
 		STANDARD(1, "Standard"),
 		DME(2, "DME");
 		
@@ -170,4 +232,5 @@ public class Order {
 		}
 	}
 	}
+*/
 }	

@@ -8,11 +8,12 @@
 CREATE TABLE Account 
     (
      accountId INTEGER NOT NULL IDENTITY   , 
-     companyId INTEGER NOT NULL , 
-     userId INTEGER NOT NULL , 
+     companyId INTEGER NOT NULL DEFAULT 0 , 
+     userId INTEGER NOT NULL DEFAULT 0, 
      startDate DATETIME NOT NULL DEFAULT getDate() , 
      updateDate DATETIME ,
-	 parentAccountId INTEGER NULL
+	 parentAccountId INTEGER NULL,
+	 statusId INTEGER NOT NULL 
     )
     ON "default"
 GO
@@ -24,24 +25,6 @@ ALTER TABLE Account ADD CONSTRAINT Account_PK PRIMARY KEY CLUSTERED (accountId)
      ON "default" 
     GO
 
-CREATE TABLE accountStatus 
-    (
-     uniqueId INTEGER NOT NULL IDENTITY   , 
-     accountId INTEGER NOT NULL , 
-     statusId INTEGER NOT NULL , 
-     startDate DATETIME NOT NULL DEFAULT getdate() , 
-     endDate DATETIME , 
-     orderId INTEGER NOT NULL 
-    )
-    ON "default"
-GO
-
-ALTER TABLE accountStatus ADD CONSTRAINT accountStatus_PK PRIMARY KEY CLUSTERED (uniqueId)
-     WITH (
-     ALLOW_PAGE_LOCKS = ON , 
-     ALLOW_ROW_LOCKS = ON )
-     ON "default" 
-    GO
 
 CREATE TABLE Company 
     (
@@ -75,7 +58,7 @@ CREATE TABLE Creator
      email VARCHAR (100) , 
      language VARCHAR (20) , 
      locale VARCHAR (20) , 
-     openId VARCHAR (50) , 
+     openId VARCHAR (200) , 
      uuid VARCHAR (50) , 
      createdDate DATETIME NOT NULL DEFAULT getDate() , 
      updateDate DATETIME 
@@ -97,6 +80,7 @@ CREATE TABLE CreatorAddress
      stree1 VARCHAR (100) , 
      street2 VARCHAR (100) , 
      state VARCHAR (50) , 
+	 city varchar(50),
      country VARCHAR (50) , 
      zip VARCHAR (25) , 
      createdDate DATETIME NOT NULL , 
@@ -154,13 +138,11 @@ CREATE TABLE "Order"
     (
      orderId INTEGER NOT NULL IDENTITY   , 
      orderTypeId INTEGER NOT NULL , 
-     editionId INTEGER NOT NULL , 
-     pricingDurationId INTEGER NOT NULL , 
+     edition VARCHAR(50) NOT NULL , 
+     pricingDuration VARCHAR(50) NOT NULL , 
      startDate DATETIME NOT NULL DEFAULT getdate() , 
-     completionDate INTEGER , 
+     completionDate DATETIME , 
      creatorId INTEGER NOT NULL , 
-     companyId INTEGER NOT NULL , 
-     userId INTEGER NOT NULL , 
      marketPlaceId INTEGER NOT NULL ,
 	 accountId INTEGER NOT NULL
     )
@@ -262,6 +244,7 @@ CREATE TABLE UserAddress
      stree1 VARCHAR (100) , 
      street2 VARCHAR (100) , 
      state VARCHAR (50) , 
+	 city varchar(50),
      country VARCHAR (50) , 
      zip VARCHAR (25) , 
      createdDate DATETIME NOT NULL DEFAULT getdate() , 
@@ -303,34 +286,8 @@ ALTER TABLE Account
     ON UPDATE NO ACTION 
 GO
 
-ALTER TABLE accountStatus 
-    ADD CONSTRAINT accountStatus_Account_FK FOREIGN KEY 
-    ( 
-     accountId
-    ) 
-    REFERENCES Account 
-    ( 
-     accountId 
-    ) 
-    ON DELETE NO ACTION 
-    ON UPDATE NO ACTION 
-GO
-
-ALTER TABLE accountStatus 
-    ADD CONSTRAINT accountStatus_Order_FK FOREIGN KEY 
-    ( 
-     orderId
-    ) 
-    REFERENCES "Order" 
-    ( 
-     orderId 
-    ) 
-    ON DELETE NO ACTION 
-    ON UPDATE NO ACTION 
-GO
-
-ALTER TABLE accountStatus 
-    ADD CONSTRAINT accountStatus_Status_FK FOREIGN KEY 
+ALTER TABLE Account 
+    ADD CONSTRAINT account_Status_FK FOREIGN KEY 
     ( 
      statusId
     ) 
@@ -369,19 +326,6 @@ ALTER TABLE "Order"
 GO
 
 ALTER TABLE "Order" 
-    ADD CONSTRAINT Order_Company_FK FOREIGN KEY 
-    ( 
-     companyId
-    ) 
-    REFERENCES Company 
-    ( 
-     companyId 
-    ) 
-    ON DELETE NO ACTION 
-    ON UPDATE NO ACTION 
-GO
-
-ALTER TABLE "Order" 
     ADD CONSTRAINT Order_Creator_FK FOREIGN KEY 
     ( 
      creatorId
@@ -394,7 +338,7 @@ ALTER TABLE "Order"
     ON UPDATE NO ACTION 
 GO
 
-ALTER TABLE "Order" 
+/*ALTER TABLE "Order" 
     ADD CONSTRAINT Order_Edition_FK FOREIGN KEY 
     ( 
      editionId
@@ -405,7 +349,7 @@ ALTER TABLE "Order"
     ) 
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION 
-GO
+GO */
 
 ALTER TABLE "Order" 
     ADD CONSTRAINT Order_marketPlace_FK FOREIGN KEY 
@@ -433,7 +377,7 @@ ALTER TABLE "Order"
     ON UPDATE NO ACTION 
 GO
 
-ALTER TABLE "Order" 
+/*ALTER TABLE "Order" 
     ADD CONSTRAINT Order_PricingDuration_FK FOREIGN KEY 
     ( 
      pricingDurationId
@@ -444,20 +388,7 @@ ALTER TABLE "Order"
     ) 
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION 
-GO
-
-ALTER TABLE "Order" 
-    ADD CONSTRAINT Order_User_FK FOREIGN KEY 
-    ( 
-     userId
-    ) 
-    REFERENCES "User" 
-    ( 
-     userId 
-    ) 
-    ON DELETE NO ACTION 
-    ON UPDATE NO ACTION 
-GO
+GO*/
 
 ALTER TABLE UserAddress 
     ADD CONSTRAINT UserAddress_User_FK FOREIGN KEY 

@@ -28,7 +28,7 @@ public interface  SubscriptionManager extends AppDAOManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public Response updateSubscriptionChange(SubscriptionChange order) throws Exception;
+	public Response SubscriptionChange(SubscriptionChange order) throws Exception;
 	
 	/**Send First parameter in Object as class expected in return
 	 * @param objects
