@@ -8,7 +8,7 @@ import com.appdirect.integration.entities.SubscriptionNotice;
 import com.appdirect.integration.entities.SubscriptionOrder;
 
 
-public interface  SubscriptionManager extends AppDAOManager {
+public interface  UserEventManager extends AppDAOManager {
 	
 	/**
 	 * @param order

@@ -16,6 +16,7 @@ private Account account;
 private Company company;
 private Order order;
 private User user;
+private Notice notice;
 public Account getAccount() {
 	return account;
 }
@@ -39,6 +40,12 @@ public Company getCompany() {
 }
 public void setCompany(Company company) {
 	this.company = company;
+}
+public Notice getNotice() {
+	return notice;
+}
+public void setNotice(Notice notice) {
+	this.notice = notice;
 }
 
 }

@@ -39,21 +39,6 @@
 <colAssociation fkAssociation="DE7691C3-6FE2-5EAB-E457-C97E11816866" referredColumn="8B1B4E30-26B8-B334-DCB2-B536FC4EADE3"/>
 </associations>
 </Column>
-<Column name="userId" id="AABAF5FB-BA90-102B-A102-9D2E71F6D0D5">
-<createdBy>akshay</createdBy>
-<createdTime>2017-07-13 02:03:20 UTC</createdTime>
-<generatorID>4365E65C-1B7C-15DE-D8D3-4792DF1DD017</generatorID>
-<ownerDesignName>DataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="A7581C66-0063-5813-1625-CB28A49BE516" referredColumn="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA"/>
-</associations>
-</Column>
 <Column name="startDate" id="F691C5DD-E46B-6E87-4549-854F23075B44">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-13 02:03:20 UTC</createdTime>
@@ -124,17 +109,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B363031D-53D7-849D-13D7-9DF2CB7D08B9"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="ACA39BDB-31CE-6E25-270B-42D3EF65A3A9" name="Account_User_FK">
-<createdBy>akshay</createdBy>
-<createdTime>2017-07-13 02:06:56 UTC</createdTime>
-<generatorID>253E2C8A-FCB6-34BA-35DE-5A8FAE5743FE</generatorID>
-<ownerDesignName>DataModel</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="AABAF5FB-BA90-102B-A102-9D2E71F6D0D5"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="DF618550-63E8-3FE5-069E-BCAEBA08EF01" name="Account_Status_FK">

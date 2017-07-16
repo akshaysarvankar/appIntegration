@@ -45,21 +45,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="userId" id="AB148900-DED9-1935-CFA8-6B183E16A564">
-<createdBy>akshay</createdBy>
-<createdTime>2017-07-13 02:07:23 UTC</createdTime>
-<generatorID>1186CDFF-A431-9494-0978-7F67B66437C9</generatorID>
-<ownerDesignName>DataModel</ownerDesignName>
-<engineerTo>
-<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>3A5BD405-2ED2-12D7-2331-A89241F495AD</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="startDate" id="C51ADBAE-B15E-3507-85BA-9691A556AB57">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-13 02:07:23 UTC</createdTime>

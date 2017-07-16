@@ -92,6 +92,7 @@
 <createdTime>2017-07-12 02:50:23 UTC</createdTime>
 <generatorID>AA997162-CFFB-3982-8B9D-1DBC590215F7</generatorID>
 <ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

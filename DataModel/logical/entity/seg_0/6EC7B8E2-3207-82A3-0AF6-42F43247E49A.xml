@@ -168,6 +168,20 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="accountId" id="6FDA273C-427D-9E63-FE47-7EF89DCCF069">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 14:17:01 UTC</createdTime>
+<generatorID>953F38CF-6EB6-4A98-93E8-27A5D4BD479B</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>78389010-1926-551D-2C42-30A7072EDE0A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="253E2C8A-FCB6-34BA-35DE-5A8FAE5743FE" name="User PK">

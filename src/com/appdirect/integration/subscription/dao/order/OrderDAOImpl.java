@@ -108,7 +108,6 @@ public class OrderDAOImpl extends AppDAOImpl implements OrderDAO {
 		assertNull("Order cannot be null", object);
 		assertNull("Account id on Order cannot be null", object.getAccountId());
 		assertNull("Marketplace id on Order cannot be null", object.getMarketPlaceId());
-		assertNull("Creator id on order cannot be null", object.getCreatorId());
 		KeyHolder key = insertForPrimaryKey(this, object, jTemplate);
 		return getOrderByOrderId(Integer.valueOf(key.getKey().intValue()), jTemplate);
 		}catch(Exception e) {

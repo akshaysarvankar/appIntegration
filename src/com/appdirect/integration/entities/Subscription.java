@@ -11,10 +11,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @XmlRootElement
-@XmlSeeAlso(value = {})
+@XmlSeeAlso(value = {SubscriptionOrder.class, SubscriptionChange.class, SubscriptionNotice.class, SubscriptionCancel.class})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property="type")
 @JsonSubTypes({@Type(value=SubscriptionOrder.class, name = "SUBSCRIPTION_ORDER"),
 	@Type(value=SubscriptionChange.class, name = "SUBSCRIPTION_CHANGE"), 
+	@Type(value=SubscriptionNotice.class, name = "SUBSCRIPTION_NOTICE"), 
 	@Type(value=SubscriptionCancel.class, name = "SUBSCRIPTION_CANCEL")})
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -25,7 +26,7 @@ public abstract class Subscription {
 	}
 	private MarketPlace marketplace;
 	private String applicationUuid;
-	private Flag flag;
+	private String flag;
 	private String returnUrl;
 	private Creator creator;
 	private Payload payload;
@@ -55,12 +56,7 @@ public abstract class Subscription {
 	public void setApplicationUuid(String applicationUuid) {
 		this.applicationUuid = applicationUuid;
 	}
-	public Flag getFlag() {
-		return flag;
-	}
-	public void setFlag(Flag flag) {
-		this.flag = flag;
-	}
+	
 	public String getReturnUrl() {
 		return returnUrl;
 	}
@@ -72,6 +68,12 @@ public abstract class Subscription {
 	}
 	public void setAccountIdentifier(String accountIdentifier) {
 		this.accountIdentifier = accountIdentifier;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 
 }

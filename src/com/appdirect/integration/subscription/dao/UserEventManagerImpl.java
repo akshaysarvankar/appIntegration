@@ -33,7 +33,7 @@ import com.appdirect.integration.subscription.dao.order.OrderDAO;
 
 @Service("subscriptionManager")
 @Scope("request")
-public class SubscriptionManagerImpl extends AppDAOManagerImpl implements SubscriptionManager {
+public class UserEventManagerImpl extends AppDAOManagerImpl implements SubscriptionManager {
 
 	@Autowired
 	private MarketPlaceDAO marketplaceDAO= null;

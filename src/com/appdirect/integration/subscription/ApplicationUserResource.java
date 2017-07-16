@@ -17,15 +17,18 @@ import org.springframework.stereotype.Component;
 
 import com.appdirect.integration.AppResource;
 import com.appdirect.integration.entities.Response;
+import com.appdirect.integration.entities.Response.ErrorCode;
+import com.appdirect.integration.entities.Subscription;
 import com.appdirect.integration.entities.SubscriptionCancel;
 import com.appdirect.integration.entities.SubscriptionChange;
+import com.appdirect.integration.entities.SubscriptionNotice;
 import com.appdirect.integration.entities.SubscriptionOrder;
 import com.appdirect.integration.subscription.dao.SubscriptionManager;
 
 @Component
 @Scope("request")
-@Path("/order")
-public class ApplicationResource extends AppResource {
+@Path("/userEvents")
+public class ApplicationUserResource extends AppResource {
 
 	@Autowired
 	private SubscriptionManager subscriptionManager= null;
@@ -49,7 +52,7 @@ public class ApplicationResource extends AppResource {
 	@Path("addOrder")
 	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response addSubscriptionOrder(SubscriptionOrder order, @Context UriInfo uri) throws Exception{
+	public Response addSubscriptionOrder(Subscription order, @Context UriInfo uri) throws Exception{
 		Response response = new Response();
 		try {	
 			if(order == null) {
@@ -58,10 +61,10 @@ public class ApplicationResource extends AppResource {
 				throw new BadRequestException("Order is not of type Subscription order");
 			}
 			setDataSource();
-			response = subscriptionManager.addSubscriptionOrder(order);
+			response = subscriptionManager.addSubscriptionOrder((SubscriptionOrder) order);
 			return response;
 		}catch(Exception e) {
-			throw new Exception(e.getMessage());
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
 		}
 	}
 	
@@ -69,7 +72,7 @@ public class ApplicationResource extends AppResource {
 	@Path("cancelSubscription")
 	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response cancelSubscription(SubscriptionCancel order, @Context UriInfo uri) throws Exception{
+	public Response cancelSubscription(Subscription order, @Context UriInfo uri) throws Exception{
 		Response response = new Response();
 		try {	
 			if(order == null) {
@@ -78,10 +81,10 @@ public class ApplicationResource extends AppResource {
 				throw new BadRequestException("Order is not of type Subscription cancel");
 			}
 			setDataSource();
-			response = subscriptionManager.cancelSubscription(order);
+			response = subscriptionManager.cancelSubscription((SubscriptionCancel) order);
 			return response;
 		}catch(Exception e) {
-			throw new Exception(e.getMessage());
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
 		}
 	}
 	
@@ -89,7 +92,7 @@ public class ApplicationResource extends AppResource {
 	@Path("updateSubscription")
 	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response updateSubscription(SubscriptionChange order, @Context UriInfo uri) throws Exception{
+	public Response updateSubscription(Subscription order, @Context UriInfo uri) throws Exception{
 		Response response = new Response();
 		try {	
 			if(order == null) {
@@ -98,10 +101,30 @@ public class ApplicationResource extends AppResource {
 				throw new BadRequestException("Order is not of type Subscription change");
 			}
 			setDataSource();
-			response = subscriptionManager.SubscriptionChange(order);
+			response = subscriptionManager.SubscriptionChange((SubscriptionChange) order);
 			return response;
 		}catch(Exception e) {
-			throw new Exception(e.getMessage());
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
+		}
+	}
+	
+	@POST
+	@Path("subscriptionNotice")
+	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	public Response subscriptionNotice(Subscription order, @Context UriInfo uri) throws Exception{
+		Response response = new Response();
+		try {	
+			if(order == null) {
+				throw new BadRequestException("Subscription notice order is null");
+			}if(!(order instanceof SubscriptionNotice)) {
+				throw new BadRequestException("Order is not of type Subscription notice");
+			}
+			setDataSource();
+			response = subscriptionManager.SubscriptionNotice((SubscriptionNotice) order);
+			return response;
+		}catch(Exception e) {
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
 		}
 	}
 }

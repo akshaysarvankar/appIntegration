@@ -9,7 +9,6 @@ CREATE TABLE Account
     (
      accountId INTEGER NOT NULL IDENTITY   , 
      companyId INTEGER NOT NULL DEFAULT 0 , 
-     userId INTEGER NOT NULL DEFAULT 0, 
      startDate DATETIME NOT NULL DEFAULT getDate() , 
      updateDate DATETIME ,
 	 parentAccountId INTEGER NULL,
@@ -142,7 +141,7 @@ CREATE TABLE "Order"
      pricingDuration VARCHAR(50) , 
      startDate DATETIME NOT NULL DEFAULT getdate() , 
      completionDate DATETIME , 
-     creatorId INTEGER NOT NULL , 
+     creatorId INTEGER , 
      marketPlaceId INTEGER NOT NULL ,
 	 accountId INTEGER NOT NULL
     )
@@ -224,6 +223,7 @@ CREATE TABLE "User"
      locale VARCHAR (20) , 
      openId VARCHAR (50) , 
      uuid VARCHAR (50) , 
+	 accountId INTEGER NOT NULL,
      createdDate DATETIME NOT NULL DEFAULT getDate() , 
      updateDate DATETIME 
     )
@@ -273,14 +273,14 @@ ALTER TABLE Account
     ON UPDATE NO ACTION 
 GO
 
-ALTER TABLE Account 
-    ADD CONSTRAINT Account_User_FK FOREIGN KEY 
+ALTER TABLE User 
+    ADD CONSTRAINT User_Account_FK FOREIGN KEY 
     ( 
-     userId
+     accountId
     ) 
-    REFERENCES "User" 
+    REFERENCES "Account" 
     ( 
-     userId 
+     accountId 
     ) 
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION 

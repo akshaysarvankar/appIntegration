@@ -1,20 +1,30 @@
 package com.appdirect.integration.entities;
 
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @XmlType(name="user")
 @XmlRootElement
 public class User {
+	
+	@XmlTransient
+	@JsonIgnore
+	private Integer userId;
+
+	@XmlTransient
+	@JsonIgnore
+	private Integer accountId;
 	private String email;
 	private String firstName;
 	private String language;
 	private String lastName;
+	private String fullName;
 	private String locale;
-	private String openI;
+	private String openId;
 	private String  uuid;
 	private Address address;
 	private Attribute attributes;
@@ -43,12 +53,6 @@ public class User {
 	public void setLocale(String locale) {
 		this.locale = locale;
 	}
-	public String getOpenI() {
-		return openI;
-	}
-	public void setOpenI(String openI) {
-		this.openI = openI;
-	}
 	public String getUuid() {
 		return uuid;
 	}
@@ -72,6 +76,30 @@ public class User {
 	}
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public Integer getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+	public String getOpenId() {
+		return openId;
+	}
+	public void setOpenId(String openId) {
+		this.openId = openId;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	
 

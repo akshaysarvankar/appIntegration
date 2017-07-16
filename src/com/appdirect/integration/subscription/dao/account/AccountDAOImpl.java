@@ -32,13 +32,10 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 					Account account = (Account) entity;
 					int idx=1;
 					PreparedStatement ps = conn.prepareStatement(
-							"INSERT INTO [Account] ([companyId],[userId],[parentAccountId],[statusId] )     VALUES" + 
-							" (? ,? ,? ,?)", new String[] {"[AccountId]"});
+							"INSERT INTO [Account] ([companyId],[parentAccountId],[statusId] )     VALUES" + 
+							" (? ,? ,?)", new String[] {"[AccountId]"});
 					
 					if(account.getCompanyId()!= null) ps.setInt(idx++,account.getCompanyId());
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
-					
-					if(account.getUserId()!= null) ps.setInt(idx++,account.getUserId());
 					else ps.setNull(idx++, java.sql.Types.INTEGER);
 					
 					if(account.getParentAccountId()!= null) ps.setInt(idx++,Integer.valueOf(account.getParentAccountId()));
@@ -65,8 +62,7 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 					Account account = (Account) entity;
 					int idx=1;
 					String query = "update Account set [updateDate]=?" 
-					+ (account.getCompanyId()!= null? ",[companyId]=?" : "") 
-					+ (account.getUserId()!= null? ",[userId]=?" : "") 
+					+ (account.getCompanyId()!= null? ",[companyId]=?" : "")  
 					+ (account.getParentAccountId()!= null? ",[parentAccountId]=?" : "")
 					+ (account.getStatus()!= null? ",[statusId]=?" : "")
 					+ " where [accountId]=?";
@@ -76,10 +72,6 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 					
 					if(account.getCompanyId()!= null) {
 						ps.setInt(idx++,account.getCompanyId());
-					}
-					
-					if(account.getUserId()!= null) {
-						ps.setInt(idx++,account.getUserId());
 					}
 					
 					if(account.getParentAccountId()!= null) {
@@ -150,7 +142,7 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 			}else if(obj instanceof Integer) {
 				accountId = (Integer) obj;
 			}
-			String query = "SELECT [accountId],[companyId],[userId],[parentAccountId],[statusId], [startDate], [updateDate]  FROM [Account] where [accountId] = ?";
+			String query = "SELECT [accountId],[companyId],[parentAccountId],[statusId], [startDate], [updateDate]  FROM [Account] where [accountId] = ?";
 			return jTemplate.queryForObject(query, new Object[] {accountId }, getRowMapperForAccount());
 			
 			}catch(IllegalArgumentException e) {
@@ -169,9 +161,6 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 			public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Account result = new Account();
 				result.setAccountIdentifier(String.valueOf(rs.getInt("accountId")));
-				if(rs.getObject("userId")!= null) {
-					result.setUserId(rs.getInt("userId"));
-				}
 				if(rs.getObject("companyId")!= null) {
 					result.setCompanyId(rs.getInt("companyId"));
 				}

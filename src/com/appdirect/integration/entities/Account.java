@@ -29,10 +29,6 @@ public class Account {
 	@JsonIgnore
 	private Integer companyId;
 	
-	@XmlTransient
-	@JsonIgnore
-	private Integer userId;
-	
 	public Account() {
 		super();
 	}
@@ -45,7 +41,6 @@ public class Account {
 		this.startDate = account.startDate;
 		this.updateDate = account.updateDate;
 		this.companyId = account.companyId;
-		this.userId = account.userId;
 	}
 	
 	
@@ -68,15 +63,6 @@ public class Account {
 	public void setCompanyId(Integer companyId) {
 		this.companyId = companyId;
 	}
-
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-
 	public String getParentAccountId() {
 		return parentAccountId;
 	}

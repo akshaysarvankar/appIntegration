@@ -21,6 +21,10 @@ public class Response {
 		this.setErrorCode(ErrorCode.INVALID_RESPONSE.name());
 	}
 	
+	public Response(boolean response) {
+		this.success = response;
+	}
+	
 	public Response(String accountIdentifier) {
 		this.accountIdentifier = accountIdentifier;
 		this.success = true;

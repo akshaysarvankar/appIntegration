@@ -9,7 +9,7 @@
 <referredTableID>2A1E3E46-7C03-956C-BAF7-6DE78A0F4300</referredTableID>
 <keyObject>DB909465-B492-B602-802E-2DD37465508A</keyObject>
 <referredKeyID>DB909465-B492-B602-802E-2DD37465508A</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>creatorId</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

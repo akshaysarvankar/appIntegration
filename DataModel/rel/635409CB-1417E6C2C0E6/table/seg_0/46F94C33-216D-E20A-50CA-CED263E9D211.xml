@@ -149,6 +149,19 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="accountId" id="2089D9D9-66AB-0A76-86BD-0BD5E81C08A2">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 14:16:13 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9B2686A5-1D50-ED07-4FE3-7836FB29A32E" referredColumn="767A80D7-143F-27C8-42F8-5578C9D9D919"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="C7E48A3B-C099-EC9A-7980-2D2B558B09D3" name="User_PK">
@@ -161,6 +174,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8054E53B-F040-6D1A-C0FC-4B1D4645ABEB" name="User_Account_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 14:16:29 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2089D9D9-66AB-0A76-86BD-0BD5E81C08A2"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
