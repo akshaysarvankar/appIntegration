@@ -40,11 +40,11 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 					int idx=1;
 					PreparedStatement ps= null;
 					if(parentClass.equals(Creator.class)) {
-					ps = conn.prepareStatement("INSERT INTO [CreatorAddress]([creatorId],[stree1],[street2],[state],[city],[country],[zip]) " + 
-							" VALUES(?,?,?,?,?,?)");
+					ps = conn.prepareStatement("INSERT INTO [CreatorAddress]([creatorId],[street1],[street2],[state],[city],[country],[zip]) " + 
+							" VALUES(?,?,?,?,?,?,?)");
 					}else if(parentClass.equals(User.class)) {
-						ps = conn.prepareStatement("INSERT INTO [UserAddress]([userId],[stree1],[street2],[state],[city],[country],[zip]) " + 
-								" VALUES(?,?,?,?,?,?)");
+						ps = conn.prepareStatement("INSERT INTO [UserAddress]([userId],[street1],[street2],[state],[city],[country],[zip]) " + 
+								" VALUES(?,?,?,?,?,?,?)");
 					}else{
 					throw new Exception("Unknow parent class while adding address");
 					}
@@ -99,7 +99,7 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 		Map<String, Object> complexObj = new HashMap<String, Object>();
 		complexObj.put(ADDRESS, object);
 		complexObj.put(PARENTCLASS, parentClass);
-		insertForPrimaryKey(this, complexObj, jTemplate);
+		insert(this, complexObj, jTemplate);
 		return getObject(object.getId(), parentClass, jTemplate);
 		}catch(Exception e) {
 			throw new Exception(e.getMessage());
@@ -123,7 +123,7 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 		try {
 			assertNull("Id cannot be null", obj);
 			assertTrue("Id is not integer", !(obj instanceof Integer));
-			String query = "SELECT [creatorId] as id,[stree1],[street2],[state],[country],[zip],[createdDate],[updatedDate] ";
+			String query = "SELECT [creatorId] as id,[street1],[street2],[state],[country],[zip],[city],[createdDate],[updatedDate] ";
 			if(parentClass.equals(Creator.class)) {
 				query += "From [CreatorAddress] where [creatorId] = ?";
 				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForAddress());	

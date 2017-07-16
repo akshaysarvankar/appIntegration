@@ -42,7 +42,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="stree1" id="44D7DF68-2A75-E9D6-074C-498F8E582F2B">
+<Attribute name="street1" id="44D7DF68-2A75-E9D6-074C-498F8E582F2B">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-12 02:24:40 UTC</createdTime>
 <ownerDesignName>DataModel</ownerDesignName>

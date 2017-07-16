@@ -37,7 +37,7 @@
 <colAssociation fkAssociation="46AF2DB3-C90B-38F9-A3E0-CA84B385D149" referredColumn="73A6F478-DB98-1C4C-D340-760DCE5C2E72"/>
 </associations>
 </Column>
-<Column name="stree1" id="EAA645D7-76F1-0AE0-E390-54D0F6D52495">
+<Column name="street1" id="EAA645D7-76F1-0AE0-E390-54D0F6D52495">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-12 02:37:57 UTC</createdTime>
 <generatorID>1792E1CE-5980-544C-BF63-AF70EA07810C</generatorID>
@@ -110,6 +110,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>

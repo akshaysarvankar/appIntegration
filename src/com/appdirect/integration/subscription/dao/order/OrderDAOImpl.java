@@ -4,16 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.KeyHolder;
@@ -23,7 +20,6 @@ import com.appdirect.integration.configuration.AppDAOImpl;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
 import com.appdirect.integration.entities.Order;
 import com.appdirect.integration.entities.Order.OrderType;
-import com.appdirect.integration.entities.Account.statusCode;
 
 @Repository("OrderDAO")
 public class OrderDAOImpl extends AppDAOImpl implements OrderDAO {

@@ -42,6 +42,7 @@
 <createdTime>2017-07-12 02:50:23 UTC</createdTime>
 <generatorID>52FE8B7B-8BCF-4EE8-5943-EB4B1AA08CBB</generatorID>
 <ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -54,6 +55,7 @@
 <createdTime>2017-07-12 02:50:23 UTC</createdTime>
 <generatorID>DC11DA0F-E567-22FA-181B-757187427BDD</generatorID>
 <ownerDesignName>DataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.appdirect.integration.configuration.AppDAOManagerImpl;
 import com.appdirect.integration.entities.Account;
+import com.appdirect.integration.entities.AccountStatus.statusCode;
 import com.appdirect.integration.entities.Address;
 import com.appdirect.integration.entities.Company;
 import com.appdirect.integration.entities.Creator;
@@ -20,7 +21,6 @@ import com.appdirect.integration.entities.Subscription;
 import com.appdirect.integration.entities.SubscriptionCancel;
 import com.appdirect.integration.entities.SubscriptionChange;
 import com.appdirect.integration.entities.SubscriptionOrder;
-import com.appdirect.integration.entities.Account.statusCode;
 import com.appdirect.integration.subscription.dao.account.AccountDAO;
 import com.appdirect.integration.subscription.dao.address.AddressDAO;
 import com.appdirect.integration.subscription.dao.company.CompanyDAO;
@@ -58,14 +58,43 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 
 	@Override
 	public Response cancelSubscription(SubscriptionCancel order) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Response SubscriptionChange(SubscriptionChange order) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			jTemplate.initTransaction();
+			Order tempOrder = new Order();
+			Order resultOrder = null;
+			tempOrder.setOrderTypeId(OrderType.SUBSCRIPTION_CANCEL.getId());
+			validateAndSetMarketPlaceOnOrder(tempOrder, order);
+			verifyOrAddCreator(tempOrder, order);		
+			Payload payload = order.getPayload();
+			if(payload!= null && payload.getAccount()!= null) {
+				Account account = accountDAO.getObject(payload.getAccount().getAccountIdentifier(), jTemplate);
+				if(account== null) {
+					return new Response(ErrorCode.ACCOUNT_NOT_FOUND,"Account you are trying to cancel is not available" );
+				}else {
+					tempOrder.setAccountId(Integer.valueOf(account.getAccountIdentifier()));
+					resultOrder = orderDAO.add(tempOrder, jTemplate);
+					if(resultOrder!= null) {
+						account.setStatus(statusCode.CANCELLED.getCode());
+						if(accountDAO.update(account, jTemplate)!= null) {
+							jTemplate.commit();
+							return new Response(resultOrder.getAccountId().toString());
+						}else {
+						jTemplate.rollback();
+						return new Response(ErrorCode.TRANSPORT_ERROR, "Error while updating account information");
+						}
+						
+					}else {
+						jTemplate.rollback();
+						return new Response(ErrorCode.TRANSPORT_ERROR, "Error while adding order information");
+					}
+				}
+			}else {
+				return new Response(ErrorCode.CONFIGURATION_ERROR, "Company information unavailable");
+			}
+			}catch(Exception e) {
+				jTemplate.rollback();
+				return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
+			}
 	}
 
 	@Override
@@ -79,7 +108,7 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 		validateAndSetMarketPlaceOnOrder(tempOrder, order);
 		verifyOrAddCreator(tempOrder, order);		
 		Payload payload = order.getPayload();
-		if(payload.getCompany()!= null) {
+		if(payload != null && payload.getCompany()!= null) {
 			Company company = payload.getCompany();
 			if(companyDAO.getObject(company.getUuid(), jTemplate)!= null) {
 				return new Response(ErrorCode.USER_ALREADY_EXISTS,"Company information exists, please use subscription change" );
@@ -106,8 +135,59 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
 		}
 	}
+	
+	@Override
+	public Response SubscriptionChange(SubscriptionChange order) throws Exception {
 
-	private void verifyOrAddCreator(Order resultOrder, SubscriptionOrder order) throws Exception {
+		try {
+		jTemplate.initTransaction();
+		Order tempOrder = new Order();
+		Order resultOrder = null;
+		tempOrder.setOrderTypeId(OrderType.SUBSCRIPTION_CHANGE.getId());
+		validateAndSetMarketPlaceOnOrder(tempOrder, order);
+		verifyOrAddCreator(tempOrder, order);		
+		Payload payload = order.getPayload();
+		if(payload != null && payload.getAccount()!= null) {
+			Account account = accountDAO.getObject(payload.getAccount().getAccountIdentifier(), jTemplate);
+			if(account== null) {
+				return new Response(ErrorCode.ACCOUNT_NOT_FOUND,"Account for which you are trying to change subscription is not available" );
+			}else {
+				Account resultAccount = suspendOldAccountAndAddNew(account);
+				assertNull("Account Addition failed", resultAccount);
+				tempOrder.setAccountId(Integer.valueOf(resultAccount.getAccountIdentifier()));
+				tempOrder.setEditionCode(payload.getOrder().getEditionCode());
+				tempOrder.setPricingDuration(payload.getOrder().getPricingDuration());
+				resultOrder = orderDAO.add(tempOrder, jTemplate);
+				if(resultOrder!= null) {
+					jTemplate.commit();
+					return new Response(resultOrder.getAccountId().toString());
+				}else {
+					jTemplate.rollback();
+					return new Response(ErrorCode.TRANSPORT_ERROR, "Error while adding order information");
+				}
+			}
+		}else {
+			return new Response(ErrorCode.CONFIGURATION_ERROR, "Company information unavailable");
+		}
+		}catch(Exception e) {
+			jTemplate.rollback();
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
+		}
+	
+	}
+
+	private Account suspendOldAccountAndAddNew(Account account) throws Exception {
+		// Suspend old account
+		Account tempAccount = new Account(account);
+		tempAccount.setStatus(statusCode.SUSPENDED.getCode());
+		Account suspendedAccount = accountDAO.update(tempAccount, jTemplate);
+		//Add new account with old information
+		suspendedAccount.setParentAccountId(suspendedAccount.getAccountIdentifier());
+		suspendedAccount.setStatus(statusCode.ACTIVE.getCode());
+		return accountDAO.add(suspendedAccount, jTemplate);
+	}
+
+	private void verifyOrAddCreator(Order resultOrder, Subscription order) throws Exception {
 		assertNull("Creator cannot be null", order.getCreator());
 		assertNull("uuid of creator cannot be null", order.getCreator().getUuid());
 		Creator creator = creatorDAO.getObject(order.getCreator().getUuid(), jTemplate);
@@ -115,8 +195,10 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 			creator = creatorDAO.add(order.getCreator(), jTemplate);
 			if(order.getCreator().getAddress()!= null) {
 				//add address
-				Address address = addressDAO.add(order.getCreator().getAddress(), Creator.class, jTemplate);
-				assertNull("Address add for creator failed",address);
+				Address address = order.getCreator().getAddress();
+				address.setId(creator.getCreatorId());
+				Address returnAddress = addressDAO.add(address, Creator.class, jTemplate);
+				assertNull("Address add for creator failed",returnAddress);
 			}
 		}
 		resultOrder.setCreatorId(creator.getCreatorId());
@@ -136,7 +218,7 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 	private Account addAccount(Company company) throws Exception{
 		Account account= new Account();
 		account.setCompanyId(company.getCompanyId());
-		account.setStatus(statusCode.INITIALIZED.getCode());
+		account.setStatus(statusCode.ACTIVE.getCode());
 		return accountDAO.add(account, jTemplate);
 	}
 

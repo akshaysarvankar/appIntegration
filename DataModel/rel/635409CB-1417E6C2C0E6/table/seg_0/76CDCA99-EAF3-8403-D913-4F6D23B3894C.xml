@@ -38,7 +38,7 @@
 <colAssociation fkAssociation="C3E0704A-5EF1-4FDF-C8CE-93C70BDF2E3A" referredColumn="6FFA57CA-ECAB-55C2-0293-23E0A6C7D0FA"/>
 </associations>
 </Column>
-<Column name="stree1" id="B348EB36-CE0A-940A-447A-8D91802FAA5A">
+<Column name="street1" id="B348EB36-CE0A-940A-447A-8D91802FAA5A">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-12 02:37:57 UTC</createdTime>
 <generatorID>44D7DF68-2A75-E9D6-074C-498F8E582F2B</generatorID>

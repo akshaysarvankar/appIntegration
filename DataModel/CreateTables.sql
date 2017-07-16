@@ -77,13 +77,13 @@ CREATE TABLE CreatorAddress
     (
      uniqueId INTEGER NOT NULL IDENTITY   , 
      creatorId INTEGER NOT NULL , 
-     stree1 VARCHAR (100) , 
+     street1 VARCHAR (100) , 
      street2 VARCHAR (100) , 
      state VARCHAR (50) , 
 	 city varchar(50),
      country VARCHAR (50) , 
      zip VARCHAR (25) , 
-     createdDate DATETIME NOT NULL , 
+     createdDate DATETIME NOT NULL  DEFAULT getDate(), 
      updatedDate DATETIME 
     )
     ON "default"
@@ -138,8 +138,8 @@ CREATE TABLE "Order"
     (
      orderId INTEGER NOT NULL IDENTITY   , 
      orderTypeId INTEGER NOT NULL , 
-     edition VARCHAR(50) NOT NULL , 
-     pricingDuration VARCHAR(50) NOT NULL , 
+     edition VARCHAR(50)  , 
+     pricingDuration VARCHAR(50) , 
      startDate DATETIME NOT NULL DEFAULT getdate() , 
      completionDate DATETIME , 
      creatorId INTEGER NOT NULL , 
@@ -241,7 +241,7 @@ CREATE TABLE UserAddress
     (
      uniqueId INTEGER NOT NULL IDENTITY   , 
      userId INTEGER NOT NULL , 
-     stree1 VARCHAR (100) , 
+     street1 VARCHAR (100) , 
      street2 VARCHAR (100) , 
      state VARCHAR (50) , 
 	 city varchar(50),

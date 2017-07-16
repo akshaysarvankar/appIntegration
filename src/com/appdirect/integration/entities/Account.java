@@ -9,12 +9,14 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @XmlType(name="account")
 @XmlRootElement
 @JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 	
 	private String accountIdentifier;
@@ -30,6 +32,22 @@ public class Account {
 	@XmlTransient
 	@JsonIgnore
 	private Integer userId;
+	
+	public Account() {
+		super();
+	}
+	
+	public Account(Account account) {
+		super();
+		this.accountIdentifier = account.accountIdentifier;
+		this.status = account.status;
+		this.parentAccountId = account.parentAccountId;
+		this.startDate = account.startDate;
+		this.updateDate = account.updateDate;
+		this.companyId = account.companyId;
+		this.userId = account.userId;
+	}
+	
 	
 	public String getAccountIdentifier() {
 		return accountIdentifier;
@@ -80,42 +98,6 @@ public class Account {
 	}
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
-	}
-
-
-	public enum statusCode{
-		INITIALIZED(1, "INITIALIZED"),
-		FAILED(2, "FAILED"),
-		FREE_TRIAL(3, "FREE_TRIAL"),
-		FREE_TRIAL_EXPIRED(4, "FREE_TRIAL_EXPIRED"),
-		ACTIVE(5, "ACTIVE"),
-		SUSPENDED(6, "SUSPENDED"),
-		CANCELLED(7, "CANCELLED");
-		
-	private final int id;
-	private final String code;
-
-	statusCode(int id, String code) {
-		this.id = id;
-		this.code = code;
-	}
-
-	private int id() {
-		return id;
-	}
-
-	private String code() {
-		return code;
-	}
-	
-	public Integer getId() {
-		return this.id;
-	}
-	
-	public String getCode() {
-		return this.code;
-	}
-	
 	}
 
 }

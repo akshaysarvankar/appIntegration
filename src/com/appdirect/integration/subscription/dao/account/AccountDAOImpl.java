@@ -5,15 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.KeyHolder;
@@ -22,22 +16,12 @@ import org.springframework.stereotype.Repository;
 import com.appdirect.integration.configuration.AppDAOImpl;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
 import com.appdirect.integration.entities.Account;
-import com.appdirect.integration.entities.Account.statusCode;
+import com.appdirect.integration.entities.AccountStatus;
 
 @Repository("AccountDAO")
 public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 	
-	private Map<Integer, String> status = new HashMap<Integer, String>();
-	AccountDAOImpl(){
-		status.put(statusCode.ACTIVE.getId(),statusCode.ACTIVE.getCode());
-		status.put(statusCode.INITIALIZED.getId(),statusCode.INITIALIZED.getCode());
-		status.put(statusCode.FAILED.getId(),statusCode.FAILED.getCode());
-		status.put(statusCode.FREE_TRIAL.getId(),statusCode.FREE_TRIAL.getCode());
-		status.put(statusCode.FREE_TRIAL_EXPIRED.getId(),statusCode.FREE_TRIAL_EXPIRED.getCode());
-		status.put(statusCode.SUSPENDED.getId(),statusCode.SUSPENDED.getCode());
-		status.put(statusCode.CANCELLED.getId(),statusCode.CANCELLED.getCode());
-	}
-	
+	private AccountStatus accStatus = new AccountStatus();
 	@Override
 	public PreparedStatementCreator createInsertStatement(Object entity) throws Exception {
 		return new PreparedStatementCreator() {
@@ -60,7 +44,7 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 					if(account.getParentAccountId()!= null) ps.setInt(idx++,Integer.valueOf(account.getParentAccountId()));
 					else ps.setNull(idx++, java.sql.Types.INTEGER);
 					
-					if(account.getStatus()!= null) ps.setInt(idx++,getKeyByValue(status, account.getStatus()));
+					if(account.getStatus()!= null) ps.setInt(idx++,accStatus.getKeyByValue(account.getStatus()));
 					else ps.setNull(idx++, java.sql.Types.INTEGER);
 					
 					return ps;
@@ -80,25 +64,33 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 				try {
 					Account account = (Account) entity;
 					int idx=1;
-					PreparedStatement ps = conn.prepareStatement(
-							"update Account set [companyId]=?,[userId]?,[parentAccountId]=?,[statusId]=?, [updateDate]=? where [accountId] = ?");
-					
-					if(account.getCompanyId()!= null) ps.setInt(idx++,account.getCompanyId());
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
-					
-					if(account.getUserId()!= null) ps.setInt(idx++,account.getUserId());
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
-					
-					if(account.getParentAccountId()!= null) ps.setInt(idx++,Integer.valueOf(account.getParentAccountId()));
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
-					
-					if(account.getStatus()!= null) ps.setInt(idx++,getKeyByValue(status, account.getStatus()));
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
+					String query = "update Account set [updateDate]=?" 
+					+ (account.getCompanyId()!= null? ",[companyId]=?" : "") 
+					+ (account.getUserId()!= null? ",[userId]=?" : "") 
+					+ (account.getParentAccountId()!= null? ",[parentAccountId]=?" : "")
+					+ (account.getStatus()!= null? ",[statusId]=?" : "")
+					+ " where [accountId]=?";
+					PreparedStatement ps= conn.prepareStatement(query);
 					
 					ps.setDate(idx++, new java.sql.Date(new Date().getTime()));
 					
-					if(account.getAccountIdentifier()!= null) ps.setInt(idx++,Integer.valueOf(account.getAccountIdentifier()));
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
+					if(account.getCompanyId()!= null) {
+						ps.setInt(idx++,account.getCompanyId());
+					}
+					
+					if(account.getUserId()!= null) {
+						ps.setInt(idx++,account.getUserId());
+					}
+					
+					if(account.getParentAccountId()!= null) {
+						ps.setInt(idx++,Integer.valueOf(account.getParentAccountId()));
+					}
+					
+					if(account.getStatus()!= null) {
+						ps.setInt(idx++,accStatus.getKeyByValue(account.getStatus()));
+					}
+
+					ps.setInt(idx++,Integer.valueOf(account.getAccountIdentifier()));
 					
 					return ps;
 				}catch(Exception e) {
@@ -181,12 +173,12 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 					result.setUserId(rs.getInt("userId"));
 				}
 				if(rs.getObject("companyId")!= null) {
-					result.setUserId(rs.getInt("companyId"));
+					result.setCompanyId(rs.getInt("companyId"));
 				}
 				if(rs.getObject("parentAccountId")!= null) {
-					result.setUserId(rs.getInt("companyId"));
+					result.setParentAccountId(String.valueOf(rs.getInt("parentAccountId")));
 				}
-				result.setStatus(status.get(rs.getObject("statusId")).toString());
+				result.setStatus(accStatus.status.get(rs.getObject("statusId")).toString());
 				result.setStartDate(rs.getDate("startDate"));
 				if(rs.getObject("updateDate")!= null) {
 					result.setUpdateDate(rs.getDate("updateDate"));
@@ -209,18 +201,5 @@ public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 		return null;
 	}
 	
-	@SuppressWarnings("hiding")
-	private <Integer, String> Integer getKeyByValue(Map<Integer, String> map, String value) {
-	    for (Entry<Integer, String> entry : map.entrySet()) {
-	        if (Objects.equals(value, entry.getValue())) {
-	            return entry.getKey();
-	        }
-	    }
-	    return null;
-	}
-
-
-	
-
 
 }

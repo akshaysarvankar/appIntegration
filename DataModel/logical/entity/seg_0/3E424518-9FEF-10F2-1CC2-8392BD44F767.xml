@@ -42,7 +42,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="stree1" id="1792E1CE-5980-544C-BF63-AF70EA07810C">
+<Attribute name="street1" id="1792E1CE-5980-544C-BF63-AF70EA07810C">
 <createdBy>akshay</createdBy>
 <createdTime>2017-07-12 02:21:44 UTC</createdTime>
 <ownerDesignName>DataModel</ownerDesignName>
@@ -136,6 +136,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="updatedDate" id="C1BBE8D7-B0DB-A831-3DF5-9994610AB616">

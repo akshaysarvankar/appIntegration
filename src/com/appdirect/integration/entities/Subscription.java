@@ -3,9 +3,12 @@ package com.appdirect.integration.entities;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @XmlRootElement
 @XmlSeeAlso(value = {})
@@ -13,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({@Type(value=SubscriptionOrder.class, name = "SUBSCRIPTION_ORDER"),
 	@Type(value=SubscriptionChange.class, name = "SUBSCRIPTION_CHANGE"), 
 	@Type(value=SubscriptionCancel.class, name = "SUBSCRIPTION_CANCEL")})
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class Subscription {
 	
 	public enum Flag {
