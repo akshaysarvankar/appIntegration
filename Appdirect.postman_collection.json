@@ -1,0 +1,871 @@
+{
+	"id": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+	"name": "Appdirect",
+	"description": "",
+	"order": [
+		"92b261d3-6a39-4292-d325-644ccf715c06",
+		"cbc6b7bd-8bea-f2c3-3251-4192572915e1",
+		"79bc1271-1fcd-28c4-e297-5ba21718f7a5",
+		"449c44fa-0684-6585-312a-2c15b8b405c8",
+		"54268db3-87f4-9ffd-b244-2283df6ae675",
+		"8162f94c-1ecf-96c5-1741-e7853fff5b95",
+		"36514df1-9c61-df14-922b-9fe7154ff9ab",
+		"36af3990-cd40-9f01-d34d-4584cec3ef54",
+		"ed6820bd-c26d-1ad5-c14a-dd958cd90efc"
+	],
+	"folders": [],
+	"timestamp": 1500155055440,
+	"owner": "773018",
+	"public": false,
+	"requests": [
+		{
+			"id": "36514df1-9c61-df14-922b-9fe7154ff9ab",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/userEvent/userUpdate",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "User update",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500244397674,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 5925,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "16",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 16 Jul 2017 22:32:40 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "6fbe0f7a-a55e-303b-1bdd-7876196479d6",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/userEvent/userUpdate",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"USER_UPDATED\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-UK\",\r\n        \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n        \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n      }\r\n    }\r\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"type\": \"USER_UPDATED\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-UK\",\r\n        \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n        \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n      }\r\n    }\r\n}"
+		},
+		{
+			"id": "36af3990-cd40-9f01-d34d-4584cec3ef54",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/userEvent/userAssignment",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "User assignment user with adress",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500244586364,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"type\": \"USER_ASSIGNMENT\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"address\": {\r\n          \"city\": \"San Jose\",\r\n          \"country\": \"US\",\r\n          \"firstName\": \"Another\",\r\n          \"fullName\": \"Another User\",\r\n          \"lastName\": \"User\",\r\n          \"state\": \"CA\",\r\n          \"street1\": \"1 Main St\",\r\n          \"zip\": \"95131\"\r\n        },\r\n        \"email\": \"738a5bd7-7472-3ebb-9754-14520f89eac7\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-US\",\r\n        \"openId\": \"https://test.appdirect.com/openid/id/a9501ec3-d028-4ad0-a939-607d10c24fe3\",\r\n        \"uuid\": \"a9501ec3-d028-4ad0-a939-607d10c24fe3\"\r\n      }\r\n    }\r\n}"
+		},
+		{
+			"id": "449c44fa-0684-6585-312a-2c15b8b405c8",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/order/updateSubscription",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1500173948087,
+			"name": "Update Subscription",
+			"description": "",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"responses": [],
+			"rawModeData": "{\r\n    \"type\": \"SUBSCRIPTION_CHANGE\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"address\": {\r\n        \"city\": \"San Jose\",\r\n        \"country\": \"US\",\r\n        \"firstName\": \"Test\",\r\n        \"fullName\": \"Test User\",\r\n        \"lastName\": \"User\",\r\n        \"state\": \"CA\",\r\n        \"street1\": \"1 Main St\",\r\n        \"zip\": \"95131\"\r\n      },\r\n      \"email\": \"testuser@testco.com\",\r\n      \"firstName\": \"Test\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7f59aad1-85cd-4c04-b35b-906ee53acc71\",\r\n      \"uuid\": \"7f59aad1-85cd-4c04-b35b-906ee53acc71\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"18\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"order\": {\r\n        \"editionCode\": \"DME\",\r\n        \"pricingDuration\": \"DAILY\",\r\n        \"items\": [{\r\n          \"quantity\": \"0\",\r\n          \"unit\": \"GIGABYTE\"\r\n        }]\r\n      }\r\n    }\r\n}"
+		},
+		{
+			"id": "54268db3-87f4-9ffd-b244-2283df6ae675",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/order/subscriptionNotice",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Subscription Notice",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500220089906,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 363,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "16",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 16 Jul 2017 15:48:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "ac2764b0-f10f-5d65-7687-58e49696d429",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/order/subscriptionNotice",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"SUBSCRIPTION_NOTICE\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"21\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"notice\": { \"type\": \"UPCOMING_INVOICE\" }\r\n    }\r\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"type\": \"SUBSCRIPTION_NOTICE\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"21\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"notice\": { \"type\": \"UPCOMING\" }\r\n    }\r\n}"
+		},
+		{
+			"id": "79bc1271-1fcd-28c4-e297-5ba21718f7a5",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/order/cancelSubscription",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1500164295972,
+			"name": "cancelSubscription Order",
+			"description": "",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 387,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "41",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 16 Jul 2017 00:18:48 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"accountIdentifier\":\"19\",\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "206f3080-abb9-b258-a4c8-c584aa0b2bda",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/order/cancelSubscription",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"SUBSCRIPTION_CANCEL\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"address\": {\r\n        \"city\": \"Sommerville\",\r\n        \"country\": \"US\",\r\n        \"firstName\": \"Test\",\r\n        \"fullName\": \"Test User\",\r\n        \"lastName\": \"User\",\r\n        \"phone\": \"5305556465\",\r\n        \"state\": \"MA\",\r\n        \"street1\": \"55 Grove St\",\r\n        \"zip\": \"02144\"\r\n      },\r\n      \"email\": \"testuser@testco.com\",\r\n      \"firstName\": \"Test\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/d124bf8b-0b0b-40d3-831b-b7f5a514d487\",\r\n      \"uuid\": \"d124bf8b-0b0b-40d3-831b-b7f5a514d487\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"19\",\r\n        \"status\": \"ACTIVE\"\r\n      }\r\n    }\r\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\r\n    \"type\": \"SUBSCRIPTION_CANCEL\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"address\": {\r\n        \"city\": \"Sommerville\",\r\n        \"country\": \"US\",\r\n        \"firstName\": \"Test\",\r\n        \"fullName\": \"Test User\",\r\n        \"lastName\": \"User\",\r\n        \"phone\": \"5305556465\",\r\n        \"state\": \"MA\",\r\n        \"street1\": \"55 Grove St\",\r\n        \"zip\": \"02144\"\r\n      },\r\n      \"email\": \"testuser@testco.com\",\r\n      \"firstName\": \"Test\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/d124bf8b-0b0b-40d3-831b-b7f5a514d487\",\r\n      \"uuid\": \"d124bf8b-0b0b-40d3-831b-b7f5a514d487\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"21\",\r\n        \"status\": \"ACTIVE\"\r\n      }\r\n    }\r\n}"
+		},
+		{
+			"id": "8162f94c-1ecf-96c5-1741-e7853fff5b95",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/userEvent/userAssignment",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1500243094632,
+			"name": "User assignment",
+			"description": "",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 72,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "16",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 16 Jul 2017 22:11:32 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "3716f95c-da2c-d48b-83f4-1e43276461db",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/userEvent/userAssignment",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"USER_ASSIGNMENT\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-US\",\r\n        \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n        \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c16\"\r\n      }\r\n    }\r\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\r\n    \"type\": \"USER_ASSIGNMENT\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-US\",\r\n        \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n        \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c16\"\r\n      }\r\n    }\r\n}"
+		},
+		{
+			"id": "92b261d3-6a39-4292-d325-644ccf715c06",
+			"headers": "Content-Type: application/xml\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/subscription/create?eventUrl=https://www.acme-marketplace.com/api/integration/v1/events/d15bb36e-5fb5-11e0-8c3c-00262d2cda03",
+			"queryParams": [
+				{
+					"key": "eventUrl",
+					"value": "https://www.acme-marketplace.com/api/integration/v1/events/d15bb36e-5fb5-11e0-8c3c-00262d2cda03",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1500256781048,
+			"name": "Create subscription order",
+			"description": "",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "cbc6b7bd-8bea-f2c3-3251-4192572915e1",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/order/addOrder",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Add order",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500155091791,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 96,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "41",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 15 Jul 2017 23:13:37 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"accountIdentifier\":\"21\",\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "516367c6-69eb-749b-82a5-3ddf05d50024",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/order/addOrder",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true,
+								"warning": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true,
+								"warning": ""
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"SUBSCRIPTION_ORDER\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"testuser@testco.com\",\r\n      \"firstName\": \"Test\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \" User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/47cb8f55-1af6-5bfc-9a7d-8061d3aa0c97\",\r\n      \"uuid\": \"47cb8f55-1af6-5bfc-9a7d-8061d3aa0c97\"\r\n    },\r\n    \"payload\": {\r\n      \"company\": {\r\n        \"country\": \"US\",\r\n        \"name\": \"tester\",\r\n        \"phoneNumber\": \"1-800-333-3333\",\r\n        \"uuid\": \"385beb51-51ae-4ffe-8c05-3f35a9f99877\",\r\n        \"website\": \"www.testco.com\"\r\n      },\r\n      \"order\": {\r\n        \"editionCode\": \"Standard\",\r\n        \"pricingDuration\": \"MONTHLY\",\r\n        \"items\": [{\r\n          \"quantity\": \"4\",\r\n          \"unit\": \"USER\"\r\n        }]\r\n      }\r\n    }\r\n}\r\n",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"type\": \"SUBSCRIPTION_ORDER\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"testuser@testco.com\",\r\n      \"firstName\": \"Test\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \" User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/47cb8f55-1af6-5bfc-9a7d-8061d3aa0c97\",\r\n      \"uuid\": \"47cb8f55-1af6-5bfc-9a7d-8061d3aa0c97\"\r\n    },\r\n    \"payload\": {\r\n      \"company\": {\r\n        \"country\": \"US\",\r\n        \"name\": \"tester\",\r\n        \"phoneNumber\": \"1-800-333-3333\",\r\n        \"uuid\": \"385beb51-51ae-4ffe-8c05-3f35a9f99825\",\r\n        \"website\": \"www.testco.com\"\r\n      },\r\n      \"order\": {\r\n        \"editionCode\": \"Standard\",\r\n        \"pricingDuration\": \"MONTHLY\",\r\n        \"items\": [{\r\n          \"quantity\": \"4\",\r\n          \"unit\": \"USER\"\r\n        }]\r\n      }\r\n    }\r\n}\r\n"
+		},
+		{
+			"id": "ed6820bd-c26d-1ad5-c14a-dd958cd90efc",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/appIntegration/integration/userEvent/userUnassignment",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c605add9-fd5b-1ac2-ee43-73f9dd2730df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "User Unasignment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1500244654186,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 97,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "16",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 16 Jul 2017 22:36:59 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WildFly/10",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Undertow/1",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"success\":true}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "response",
+					"id": "602ddc66-0991-2901-912e-465af4b6b768",
+					"request": {
+						"url": "http://localhost:8080/appIntegration/integration/userEvent/userUnassignment",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\nAccept: application/json\n",
+						"data": "{\r\n    \"type\": \"USER_UNASSIGNMENT\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"address\": {\r\n          \"city\": \"San Jose\",\r\n          \"country\": \"US\",\r\n          \"firstName\": \"Another\",\r\n          \"fullName\": \"Another User\",\r\n          \"lastName\": \"User\",\r\n          \"state\": \"CA\",\r\n          \"street1\": \"1 Main St\",\r\n          \"zip\": \"95131\"\r\n        },\r\n        \"email\": \"738a5bd7-7472-3ebb-9754-14520f89eac7\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-US\",\r\n        \"openId\": \"https://test.appdirect.com/openid/id/a9501ec3-d028-4ad0-a939-607d10c24fe3\",\r\n        \"uuid\": \"a9501ec3-d028-4ad0-a939-607d10c24fe3\"\r\n      }\r\n    }\r\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"type\": \"USER_UNASSIGNMENT\",\r\n    \"marketplace\": {\r\n      \"baseUrl\": \"https://www.acme.com\",\r\n      \"partner\": \"APPDIRECT\"\r\n    },\r\n    \"creator\": {\r\n      \"email\": \"c734676b-40f6-4783-b4ee-e20d59bbf943\",\r\n      \"firstName\": \"Another\",\r\n      \"language\": \"en\",\r\n      \"lastName\": \"User\",\r\n      \"locale\": \"en-US\",\r\n      \"openId\": \"https://www.acme.com/openid/id/7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\",\r\n      \"uuid\": \"7ac30510-c54c-45ca-9c2f-f4d6b3aa2c15\"\r\n    },\r\n    \"payload\": {\r\n      \"account\": {\r\n        \"accountIdentifier\": \"23\",\r\n        \"status\": \"ACTIVE\"\r\n      },\r\n      \"user\": {\r\n        \"address\": {\r\n          \"city\": \"San Jose\",\r\n          \"country\": \"US\",\r\n          \"firstName\": \"Another\",\r\n          \"fullName\": \"Another User\",\r\n          \"lastName\": \"User\",\r\n          \"state\": \"CA\",\r\n          \"street1\": \"1 Main St\",\r\n          \"zip\": \"95131\"\r\n        },\r\n        \"email\": \"738a5bd7-7472-3ebb-9754-14520f89eac7\",\r\n        \"firstName\": \"Another\",\r\n        \"language\": \"en\",\r\n        \"lastName\": \"User\",\r\n        \"locale\": \"en-US\",\r\n        \"openId\": \"https://test.appdirect.com/openid/id/a9501ec3-d028-4ad0-a939-607d10c24fe3\",\r\n        \"uuid\": \"a9501ec3-d028-4ad0-a939-607d10c24fe3\"\r\n      }\r\n    }\r\n}"
+		}
+	]
+}
