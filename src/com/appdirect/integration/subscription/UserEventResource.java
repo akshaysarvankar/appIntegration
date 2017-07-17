@@ -1,6 +1,5 @@
 package com.appdirect.integration.subscription;
 
-import java.io.OutputStream;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.GET;
@@ -19,16 +18,10 @@ import com.appdirect.integration.AppResource;
 import com.appdirect.integration.client.RestClient;
 import com.appdirect.integration.entities.Response;
 import com.appdirect.integration.entities.Response.ErrorCode;
-import com.appdirect.integration.entities.subscription.Subscription;
-import com.appdirect.integration.entities.subscription.SubscriptionCancel;
-import com.appdirect.integration.entities.subscription.SubscriptionChange;
-import com.appdirect.integration.entities.subscription.SubscriptionNotice;
-import com.appdirect.integration.entities.subscription.SubscriptionOrder;
 import com.appdirect.integration.entities.userevent.UserAssignment;
 import com.appdirect.integration.entities.userevent.UserEvent;
 import com.appdirect.integration.entities.userevent.UserUnassignment;
 import com.appdirect.integration.entities.userevent.UserUpdated;
-import com.appdirect.integration.subscription.dao.SubscriptionManager;
 import com.appdirect.integration.subscription.dao.UserEventManager;
 
 @Component
