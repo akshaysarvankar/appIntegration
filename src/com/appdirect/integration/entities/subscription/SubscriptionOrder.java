@@ -1,4 +1,4 @@
-package com.appdirect.integration.entities;
+package com.appdirect.integration.entities.subscription;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;

@@ -18,11 +18,11 @@ import org.springframework.stereotype.Component;
 import com.appdirect.integration.AppResource;
 import com.appdirect.integration.entities.Response;
 import com.appdirect.integration.entities.Response.ErrorCode;
-import com.appdirect.integration.entities.Subscription;
-import com.appdirect.integration.entities.SubscriptionCancel;
-import com.appdirect.integration.entities.SubscriptionChange;
-import com.appdirect.integration.entities.SubscriptionNotice;
-import com.appdirect.integration.entities.SubscriptionOrder;
+import com.appdirect.integration.entities.subscription.Subscription;
+import com.appdirect.integration.entities.subscription.SubscriptionCancel;
+import com.appdirect.integration.entities.subscription.SubscriptionChange;
+import com.appdirect.integration.entities.subscription.SubscriptionNotice;
+import com.appdirect.integration.entities.subscription.SubscriptionOrder;
 import com.appdirect.integration.subscription.dao.SubscriptionManager;
 
 @Component
@@ -34,19 +34,19 @@ public class ApplicationSubscriptionResource extends AppResource {
 	private SubscriptionManager subscriptionManager= null;
 
 	
-	@GET
-	@Path("{id}/get")
-	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-	public Object subscription(@PathParam("id") String orderId,@Context UriInfo uri) throws Exception{
-		Response response = new Response();
-		try {
-			
-			
-			return response;
-		}catch(Exception e) {
-			throw new Exception(e.getMessage());
-		}
-	}
+//	@GET
+//	@Path("{id}/get")
+//	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+//	public Object subscription(@PathParam("id") String orderId,@Context UriInfo uri) throws Exception{
+//		Response response = new Response();
+//		try {
+//			
+//			
+//			return response;
+//		}catch(Exception e) {
+//			throw new Exception(e.getMessage());
+//		}
+//	}
 	
 	@POST
 	@Path("addOrder")

@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Map.Entry;
 
-public class AccountStatus {
+public class Status {
 	
 	public Map<Integer, String> status = new HashMap<Integer, String>();
-	public AccountStatus(){
+	public Status(){
 		status.put(statusCode.ACTIVE.getId(),statusCode.ACTIVE.getCode());
 		status.put(statusCode.INITIALIZED.getId(),statusCode.INITIALIZED.getCode());
 		status.put(statusCode.FAILED.getId(),statusCode.FAILED.getCode());

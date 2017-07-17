@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="UserEvent_User_FK" directorySegmentName="seg_0" id="613E26ED-9E9B-A863-C611-6D59A56392D7">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:42 UTC</createdTime>
+<generatorID>20AC15FE-8719-D63D-9F90-F498F46FFD48</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<sourcePk>253E2C8A-FCB6-34BA-35DE-5A8FAE5743FE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6EC7B8E2-3207-82A3-0AF6-42F43247E49A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5A5A46F3-D7BF-90A5-9943-37D8C458BD09</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

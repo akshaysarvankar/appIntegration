@@ -10,7 +10,26 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @XmlType(name="user")
 @XmlRootElement
 public class User {
+	public User() {
+		super();
+	}
 	
+	public User(User user) {
+		super();
+		this.userId = user.userId;
+		this.accountId = user.accountId;
+		this.email = user.email;
+		this.firstName = user.firstName;
+		this.language = user.language;
+		this.lastName = user.lastName;
+		this.fullName = user.fullName;
+		this.locale = user.locale;
+		this.openId = user.openId;
+		this.uuid = user.uuid;
+		this.address = user.address;
+		this.statusId = user.statusId;
+		this.attributes = user.attributes;
+	}
 	@XmlTransient
 	@JsonIgnore
 	private Integer userId;
@@ -27,6 +46,10 @@ public class User {
 	private String openId;
 	private String  uuid;
 	private Address address;
+	
+	@XmlTransient
+	@JsonIgnore
+	private Integer statusId;
 	private Attribute attributes;
 	
 	public String getEmail() {
@@ -100,6 +123,12 @@ public class User {
 	}
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+	public Integer getStatusId() {
+		return statusId;
+	}
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
 	}
 	
 

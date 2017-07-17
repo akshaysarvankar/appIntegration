@@ -16,12 +16,12 @@ import org.springframework.stereotype.Repository;
 import com.appdirect.integration.configuration.AppDAOImpl;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
 import com.appdirect.integration.entities.Account;
-import com.appdirect.integration.entities.AccountStatus;
+import com.appdirect.integration.entities.Status;
 
 @Repository("AccountDAO")
 public class AccountDAOImpl extends AppDAOImpl implements AccountDAO {
 	
-	private AccountStatus accStatus = new AccountStatus();
+	private Status accStatus = new Status();
 	@Override
 	public PreparedStatementCreator createInsertStatement(Object entity) throws Exception {
 		return new PreparedStatementCreator() {

@@ -2,48 +2,33 @@ package com.appdirect.integration.subscription.dao;
 
 import com.appdirect.integration.configuration.AppDAOManager;
 import com.appdirect.integration.entities.Response;
-import com.appdirect.integration.entities.SubscriptionCancel;
-import com.appdirect.integration.entities.SubscriptionChange;
-import com.appdirect.integration.entities.SubscriptionNotice;
-import com.appdirect.integration.entities.SubscriptionOrder;
+import com.appdirect.integration.entities.userevent.UserAssignment;
+import com.appdirect.integration.entities.userevent.UserUnassignment;
+import com.appdirect.integration.entities.userevent.UserUpdated;
 
 
 public interface  UserEventManager extends AppDAOManager {
 	
 	/**
-	 * @param order
+	 * @param userEvent
 	 * @return
 	 * @throws Exception
 	 */
-	public Response addSubscriptionOrder(SubscriptionOrder order) throws Exception ;
+	public Response userAssignment(UserAssignment userEvent) throws Exception ;
 	
 	/**
-	 * @param order
+	 * @param userEvent
 	 * @return
 	 * @throws Exception
 	 */
-	public Response cancelSubscription(SubscriptionCancel order) throws Exception;
+	public Response userUnassignment(UserUnassignment userEvent) throws Exception;
 	
 	/**
-	 * @param order
+	 * @param userEvent
 	 * @return
 	 * @throws Exception
 	 */
-	public Response SubscriptionChange(SubscriptionChange order) throws Exception;
-	
-	/**Send First parameter in Object as class expected in return
-	 * @param objects
-	 * @return
-	 * @throws Exception
-	 */
-	public SubscriptionOrder getSubscriptionByOrderId(Object...objects) throws Exception;
+	public Response userUpdate(UserUpdated userEvent) throws Exception;
 
-	/**
-	 * @param order
-	 * @return
-	 * @throws Exception
-	 */
-	public Response SubscriptionNotice(SubscriptionNotice order) throws Exception;
-	
 
 }

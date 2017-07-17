@@ -165,7 +165,9 @@ public class OrderDAOImpl extends AppDAOImpl implements OrderDAO {
 				if(rs.getObject("completionDate")!= null) {
 					result.setCompetionDate(rs.getDate("completionDate"));
 				}
-				result.setCreatorId(rs.getInt("creatorId"));
+				if(rs.getObject("creatorId")!= null) {
+					result.setCreatorId(rs.getInt("creatorId"));
+				}
 				result.setAccountId(rs.getInt("accountId"));
 				result.setMarketPlaceId(rs.getInt("marketPlaceId"));
 				if(rs.getObject("edition")!= null) {

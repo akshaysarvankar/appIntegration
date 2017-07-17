@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,8 +82,63 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 
 	@Override
 	public PreparedStatementCreator createUpdateStatement(Object entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+				try {
+					Map<String, Object> complexObj = (Map<String, Object>) entity;
+					Address address = (Address) complexObj.get(ADDRESS);
+					Class<?> parentClass = (Class<?>) complexObj.get(PARENTCLASS);
+					int idx=1;
+					PreparedStatement ps= null;
+					if(parentClass.equals(Creator.class)) {
+						String query = "UPDATE [CreatorAddress] set [updatedDate]= ?" +
+								(address.getStreet1()!= null? ",[street1] = ?": "")+
+								(address.getStreet2()!= null? ",[street2] = ?": "")+
+								(address.getState()!= null? ",[state] = ?": "")+
+								(address.getCity()!= null? ",[city] = ?": "")+
+								(address.getCountry()!= null? ",[country] = ?": "")+
+								(address.getZip()!= null? ",[zip] = ?": "")+
+								" where [creatorId] = ? ";					
+					ps = conn.prepareStatement(query);
+					}else if(parentClass.equals(User.class)) {
+
+						String query = "UPDATE [UserAddress] set [updatedDate]= ?" +
+								(address.getStreet1()!= null? ",[street1] = ?": "")+
+								(address.getStreet2()!= null? ",[street2] = ?": "")+
+								(address.getState()!= null? ",[state] = ?": "")+
+								(address.getCity()!= null? ",[city] = ?": "")+
+								(address.getCountry()!= null? ",[country] = ?": "")+
+								(address.getZip()!= null? ",[zip] = ?": "")+
+								" where [userId] = ? ";					
+					ps = conn.prepareStatement(query);
+					} else{
+					throw new Exception("Unknow parent class while updating address");
+					}
+					
+					ps.setDate(idx++, new java.sql.Date(new Date().getTime()));
+					
+					if(address.getStreet1()!= null) ps.setString(idx++,address.getStreet1());
+					
+					if(address.getStreet2()!= null) ps.setString(idx++,address.getStreet2());
+					
+					if(address.getState()!= null) ps.setString(idx++,address.getState());
+					
+					if(address.getCity()!= null) ps.setString(idx++,address.getCity());
+					
+					if(address.getCountry()!= null) ps.setString(idx++,address.getCountry());
+					
+					if(address.getZip()!= null) ps.setString(idx++,address.getZip());
+					
+					ps.setInt(idx++,address.getId());
+					
+					return ps;
+				}catch(Exception e) {
+					throw new SQLException(e.getMessage());
+				}
+			}
+		};
 	}
 
 	@Override
@@ -108,8 +164,17 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 
 	@Override
 	public Address update(Address object,Class<?> parentClass, AppJdbcTemplate jTemplate) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+		assertNull("Address cannot be null", object);
+		assertNull("Parent class cannot be null", parentClass);
+		Map<String, Object> complexObj = new HashMap<String, Object>();
+		complexObj.put(ADDRESS, object);
+		complexObj.put(PARENTCLASS, parentClass);
+		update(this, complexObj, jTemplate);
+		return getObject(object.getId(), parentClass, jTemplate);
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
@@ -123,11 +188,12 @@ public class AddressDAOImpl extends AppDAOImpl implements AddressDAO {
 		try {
 			assertNull("Id cannot be null", obj);
 			assertTrue("Id is not integer", !(obj instanceof Integer));
-			String query = "SELECT [creatorId] as id,[street1],[street2],[state],[country],[zip],[city],[createdDate],[updatedDate] ";
 			if(parentClass.equals(Creator.class)) {
+				String query = "SELECT [creatorId] as id,[street1],[street2],[state],[country],[zip],[city],[createdDate],[updatedDate] ";
 				query += "From [CreatorAddress] where [creatorId] = ?";
 				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForAddress());	
 			}else if (parentClass.equals(User.class)) {
+				String query = "SELECT [UserId] as id,[street1],[street2],[state],[country],[zip],[city],[createdDate],[updatedDate] ";
 				query += "From [UserAddress] where [userId] = ?";
 				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForAddress());	
 			}

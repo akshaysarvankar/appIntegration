@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="UserEvent_marketPlace_FK" directorySegmentName="seg_0" id="5193478E-5A53-89D4-4D9A-CCAA2B1BF675">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:42 UTC</createdTime>
+<generatorID>05896728-DBBB-0DB6-0A05-49385B3A11F1</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<sourcePk>A93DB022-4F42-F96D-BF20-5F0D68BE87A8</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1C573F7E-B574-E48F-0511-9F8FE160407A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5A5A46F3-D7BF-90A5-9943-37D8C458BD09</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

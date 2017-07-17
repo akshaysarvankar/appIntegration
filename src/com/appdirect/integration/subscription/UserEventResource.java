@@ -1,12 +1,12 @@
 package com.appdirect.integration.subscription;
 
+import java.io.OutputStream;
+
 import javax.ws.rs.BadRequestException;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
@@ -16,28 +16,40 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.appdirect.integration.AppResource;
+import com.appdirect.integration.client.RestClient;
 import com.appdirect.integration.entities.Response;
 import com.appdirect.integration.entities.Response.ErrorCode;
+import com.appdirect.integration.entities.subscription.Subscription;
+import com.appdirect.integration.entities.subscription.SubscriptionCancel;
+import com.appdirect.integration.entities.subscription.SubscriptionChange;
+import com.appdirect.integration.entities.subscription.SubscriptionNotice;
+import com.appdirect.integration.entities.subscription.SubscriptionOrder;
 import com.appdirect.integration.entities.userevent.UserAssignment;
 import com.appdirect.integration.entities.userevent.UserEvent;
 import com.appdirect.integration.entities.userevent.UserUnassignment;
 import com.appdirect.integration.entities.userevent.UserUpdated;
+import com.appdirect.integration.subscription.dao.SubscriptionManager;
 import com.appdirect.integration.subscription.dao.UserEventManager;
 
 @Component
 @Scope("request")
-@Path("/userEvent")
-public class ApplicationUserResource extends AppResource {
-
+@Path("/event")
+public class UserEventResource extends AppResource {
+	
 	@Autowired
 	private UserEventManager userEventManager= null;
-
-	@POST
-	@Path("userAssignment")
-	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response userAssignment(UserEvent userEvent, @Context UriInfo uri) throws Exception{
+	
+	@Autowired
+	private RestClient restClient = null;
+	
+	
+	@GET
+	@Path("assignment")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public Response userAssignment(@QueryParam("eventUrl") String eventUrl,@Context UriInfo uri) throws Exception{
 		Response response = new Response();
+		//OutputStream oStream = restClient.getRestObject(eventUrl);
+		UserEvent userEvent = new UserAssignment();
 		try {	
 			if(userEvent == null) {
 				throw new BadRequestException("User Event is null");
@@ -52,12 +64,13 @@ public class ApplicationUserResource extends AppResource {
 		}
 	}
 	
-	@POST
-	@Path("userUnassignment")
-	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response userUnassignment(UserEvent userEvent, @Context UriInfo uri) throws Exception{
+	@GET
+	@Path("unassignment")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public Response userUnassignment(@QueryParam("eventUrl") String eventUrl,@Context UriInfo uri) throws Exception{
 		Response response = new Response();
+		
+		UserEvent userEvent = new UserUnassignment();
 		try {	
 			if(userEvent == null) {
 				throw new BadRequestException("User Event is null");
@@ -72,12 +85,13 @@ public class ApplicationUserResource extends AppResource {
 		}
 	}
 	
-	@POST
-	@Path("userUpdate")
-	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public Response userUpdate(UserEvent userEvent, @Context UriInfo uri) throws Exception{
+	@GET
+	@Path("update")
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	public Response subscriptionChange(@QueryParam("eventUrl") String eventUrl,@Context UriInfo uri) throws Exception{
 		Response response = new Response();
+		
+		UserEvent userEvent = new UserUpdated();
 		try {	
 			if(userEvent == null) {
 				throw new BadRequestException("User Event is null");
@@ -91,5 +105,4 @@ public class ApplicationUserResource extends AppResource {
 			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
 		}
 	}
-	
 }

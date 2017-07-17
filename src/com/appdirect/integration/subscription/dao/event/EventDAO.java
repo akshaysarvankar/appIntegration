@@ -1,13 +1,13 @@
-package com.appdirect.integration.subscription.dao.user;
+package com.appdirect.integration.subscription.dao.event;
 
 import java.util.List;
 
 import com.appdirect.integration.configuration.AppDAO;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
-import com.appdirect.integration.entities.User;
+import com.appdirect.integration.entities.Event;
 
 
-public interface  UserDAO extends AppDAO {
+public interface  EventDAO extends AppDAO {
 	
 
 	/**
@@ -16,7 +16,7 @@ public interface  UserDAO extends AppDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public User add(User object, AppJdbcTemplate jTemplate) throws Exception;
+	public Event add(Event object, AppJdbcTemplate jTemplate) throws Exception;
 	
 	/**
 	 * @param object
@@ -24,7 +24,7 @@ public interface  UserDAO extends AppDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public User update(User object, AppJdbcTemplate jTemplate) throws Exception;
+	public Event update(Event object, AppJdbcTemplate jTemplate) throws Exception;
 	
 	/**
 	 * @param Id
@@ -40,7 +40,15 @@ public interface  UserDAO extends AppDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public User getObject(Object obj, Integer accountId, AppJdbcTemplate jTemplate) throws Exception;
+	public Event getEventByEventId(Integer EventId, AppJdbcTemplate jTemplate) throws Exception;
+	
+	/**
+	 * @param accountId
+	 * @param jTemplate
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Event> getEventsByUserId(Object userId, AppJdbcTemplate jTemplate) throws Exception;
 	
 	/**
 	 * @param condition
@@ -48,7 +56,7 @@ public interface  UserDAO extends AppDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<User> getObjectByCondition(String condition, AppJdbcTemplate jTemplate) throws Exception;
+	public List<Event> getObjectByCondition(String condition, AppJdbcTemplate jTemplate) throws Exception;
 	
 	/**
 	 * @param condition
@@ -57,14 +65,6 @@ public interface  UserDAO extends AppDAO {
 	 * @throws Exception
 	 */
 	public List<Integer> getObjectIdByCondition(String condition, AppJdbcTemplate jTemplate) throws Exception;
-
-	/**
-	 * @param accountId
-	 * @param jTemplate
-	 * @return
-	 * @throws Exception
-	 */
-	public List<User> getUsersByAccount(Integer accountId, AppJdbcTemplate jTemplate) throws Exception;
 	
 	
 }

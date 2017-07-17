@@ -110,8 +110,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="uuid" id="76DE94F1-093C-A560-8BA9-65689D61FE3C">
@@ -162,6 +162,19 @@
 <colAssociation fkAssociation="9B2686A5-1D50-ED07-4FE3-7836FB29A32E" referredColumn="767A80D7-143F-27C8-42F8-5578C9D9D919"/>
 </associations>
 </Column>
+<Column name="statusId" id="464287C0-8605-418B-5F56-D8ADAF53062D">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 20:06:38 UTC</createdTime>
+<ownerDesignName>DataModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2158B4F5-E8D3-33D4-2091-0A4CA0EE7EF9" referredColumn="6DB29316-370A-2127-402C-B99DABEDC791"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="C7E48A3B-C099-EC9A-7980-2D2B558B09D3" name="User_PK">
@@ -184,6 +197,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="2089D9D9-66AB-0A76-86BD-0BD5E81C08A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="018E9AA6-CC8B-DBF1-7E60-69B5BC4B6574" name="User_Status_FK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 20:06:45 UTC</createdTime>
+<generatorID>D06DE44E-6437-233C-23F3-FBD375B7B0E5</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="464287C0-8605-418B-5F56-D8ADAF53062D"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

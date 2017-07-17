@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.appdirect.integration.configuration.AppDAOManagerImpl;
 import com.appdirect.integration.entities.Account;
-import com.appdirect.integration.entities.AccountStatus.statusCode;
+import com.appdirect.integration.entities.Status.statusCode;
 import com.appdirect.integration.entities.Address;
 import com.appdirect.integration.entities.Company;
 import com.appdirect.integration.entities.Creator;
@@ -19,11 +19,11 @@ import com.appdirect.integration.entities.Order.OrderType;
 import com.appdirect.integration.entities.Payload;
 import com.appdirect.integration.entities.Response;
 import com.appdirect.integration.entities.Response.ErrorCode;
-import com.appdirect.integration.entities.Subscription;
-import com.appdirect.integration.entities.SubscriptionCancel;
-import com.appdirect.integration.entities.SubscriptionChange;
-import com.appdirect.integration.entities.SubscriptionOrder;
-import com.appdirect.integration.entities.SubscriptionNotice;
+import com.appdirect.integration.entities.subscription.Subscription;
+import com.appdirect.integration.entities.subscription.SubscriptionCancel;
+import com.appdirect.integration.entities.subscription.SubscriptionChange;
+import com.appdirect.integration.entities.subscription.SubscriptionNotice;
+import com.appdirect.integration.entities.subscription.SubscriptionOrder;
 import com.appdirect.integration.subscription.dao.account.AccountDAO;
 import com.appdirect.integration.subscription.dao.address.AddressDAO;
 import com.appdirect.integration.subscription.dao.company.CompanyDAO;
@@ -57,6 +57,46 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 	public SubscriptionOrder getSubscriptionByOrderId(Object... objects) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	@Transactional
+	public Response addSubscriptionOrder(SubscriptionOrder order) throws Exception {
+		try {
+		jTemplate.initTransaction();
+		Order tempOrder = new Order();
+		Order resultOrder = null;
+		tempOrder.setOrderTypeId(OrderType.SUBSCRIPTION_ORDER.getId());
+		validateAndSetMarketPlaceOnOrder(tempOrder, order);
+		verifyOrAddCreator(tempOrder, order);		
+		Payload payload = order.getPayload();
+		if(payload != null && payload.getCompany()!= null) {
+			Company company = payload.getCompany();
+			if(companyDAO.getObject(company.getUuid(), jTemplate)!= null) {
+				return new Response(ErrorCode.USER_ALREADY_EXISTS,"Company information exists, please use subscription change" );
+			}else {
+				//add Company and account
+				Account resultAccount = addAccount(companyDAO.add(company, jTemplate));
+				tempOrder.setAccountId(Integer.valueOf(resultAccount.getAccountIdentifier()));
+				tempOrder.setEditionCode(payload.getOrder().getEditionCode());
+				tempOrder.setPricingDuration(payload.getOrder().getPricingDuration());
+				resultOrder = orderDAO.add(tempOrder, jTemplate);
+				if(resultOrder!= null) {
+					jTemplate.commit();
+					return new Response(resultOrder.getAccountId().toString());
+				}else {
+					jTemplate.rollback();
+					return new Response(ErrorCode.TRANSPORT_ERROR, "Error while adding account and order information");
+				}
+			}
+		}else {
+			jTemplate.rollback();
+			return new Response(ErrorCode.CONFIGURATION_ERROR, "Payload information unavailable");
+		}
+		}catch(Exception e) {
+			jTemplate.rollback();
+			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
+		}
 	}
 
 	@Override
@@ -101,45 +141,7 @@ public class SubscriptionManagerImpl extends AppDAOManagerImpl implements Subscr
 			}
 	}
 
-	@Override
-	@Transactional
-	public Response addSubscriptionOrder(SubscriptionOrder order) throws Exception {
-		try {
-		jTemplate.initTransaction();
-		Order tempOrder = new Order();
-		Order resultOrder = null;
-		tempOrder.setOrderTypeId(OrderType.SUBSCRIPTION_ORDER.getId());
-		validateAndSetMarketPlaceOnOrder(tempOrder, order);
-		verifyOrAddCreator(tempOrder, order);		
-		Payload payload = order.getPayload();
-		if(payload != null && payload.getCompany()!= null) {
-			Company company = payload.getCompany();
-			if(companyDAO.getObject(company.getUuid(), jTemplate)!= null) {
-				return new Response(ErrorCode.USER_ALREADY_EXISTS,"Company information exists, please use subscription change" );
-			}else {
-				//add Company and account
-				Account resultAccount = addAccount(companyDAO.add(company, jTemplate));
-				tempOrder.setAccountId(Integer.valueOf(resultAccount.getAccountIdentifier()));
-				tempOrder.setEditionCode(payload.getOrder().getEditionCode());
-				tempOrder.setPricingDuration(payload.getOrder().getPricingDuration());
-				resultOrder = orderDAO.add(tempOrder, jTemplate);
-				if(resultOrder!= null) {
-					jTemplate.commit();
-					return new Response(resultOrder.getAccountId().toString());
-				}else {
-					jTemplate.rollback();
-					return new Response(ErrorCode.TRANSPORT_ERROR, "Error while adding account and order information");
-				}
-			}
-		}else {
-			jTemplate.rollback();
-			return new Response(ErrorCode.CONFIGURATION_ERROR, "Payload information unavailable");
-		}
-		}catch(Exception e) {
-			jTemplate.rollback();
-			return new Response(ErrorCode.OPERATION_CANCELED, e.getMessage());
-		}
-	}
+	
 	
 	@Override
 	public Response SubscriptionChange(SubscriptionChange order) throws Exception {

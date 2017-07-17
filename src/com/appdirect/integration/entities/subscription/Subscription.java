@@ -1,8 +1,11 @@
-package com.appdirect.integration.entities;
+package com.appdirect.integration.entities.subscription;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
+import com.appdirect.integration.entities.Creator;
+import com.appdirect.integration.entities.MarketPlace;
+import com.appdirect.integration.entities.Payload;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;

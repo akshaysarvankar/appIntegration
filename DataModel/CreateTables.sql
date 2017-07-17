@@ -221,11 +221,12 @@ CREATE TABLE "User"
      email VARCHAR (100) , 
      language VARCHAR (20) , 
      locale VARCHAR (20) , 
-     openId VARCHAR (50) , 
+     openId VARCHAR (200) , 
      uuid VARCHAR (50) , 
 	 accountId INTEGER NOT NULL,
      createdDate DATETIME NOT NULL DEFAULT getDate() , 
-     updateDate DATETIME 
+     updateDate DATETIME ,
+	 statusId INTEGER NOT NULL
     )
     ON "default"
 GO
@@ -281,6 +282,19 @@ ALTER TABLE User
     REFERENCES "Account" 
     ( 
      accountId 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE User 
+    ADD CONSTRAINT User_Status_FK FOREIGN KEY 
+    ( 
+     statusId
+    ) 
+    REFERENCES "Status" 
+    ( 
+     Id 
     ) 
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION 
@@ -392,6 +406,111 @@ GO*/
 
 ALTER TABLE UserAddress 
     ADD CONSTRAINT UserAddress_User_FK FOREIGN KEY 
+    ( 
+     userId
+    ) 
+    REFERENCES "User" 
+    ( 
+     userId 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+CREATE TABLE EventType 
+    (
+     Id INTEGER NOT NULL IDENTITY NOT FOR REPLICATION , 
+     code VARCHAR (100) , 
+     shortDescription VARCHAR (50) , 
+     description VARCHAR (100) , 
+     startDate DATETIME NOT NULL DEFAULT getDate() , 
+     endDate DATETIME 
+    )
+    ON "default"
+GO
+
+ALTER TABLE EventType ADD CONSTRAINT EventType_PK PRIMARY KEY CLUSTERED (Id)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+     ON "default" 
+    GO
+
+CREATE TABLE UserEvent 
+    (
+     eventId INTEGER NOT NULL IDENTITY NOT FOR REPLICATION , 
+     eventTypeId INTEGER NOT NULL , 
+     startDate DATETIME NOT NULL DEFAULT getdate() , 
+     completionDate DATETIME , 
+     creatorId INTEGER , 
+     marketPlaceId INTEGER NOT NULL , 
+     accountId INTEGER NOT NULL , 
+     userId INTEGER NOT NULL 
+    )
+    ON "default"
+GO
+
+ALTER TABLE UserEvent ADD CONSTRAINT Orderv1_PK PRIMARY KEY CLUSTERED (eventId)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+     ON "default" 
+    GO
+
+ALTER TABLE UserEvent 
+    ADD CONSTRAINT UserEvent_Account_FK FOREIGN KEY 
+    ( 
+     accountId
+    ) 
+    REFERENCES Account 
+    ( 
+     accountId 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE UserEvent 
+    ADD CONSTRAINT UserEvent_Creator_FK FOREIGN KEY 
+    ( 
+     creatorId
+    ) 
+    REFERENCES Creator 
+    ( 
+     creatorId 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE UserEvent 
+    ADD CONSTRAINT UserEvent_EventType_FK FOREIGN KEY 
+    ( 
+     eventTypeId
+    ) 
+    REFERENCES EventType 
+    ( 
+     Id 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE UserEvent 
+    ADD CONSTRAINT UserEvent_marketPlace_FK FOREIGN KEY 
+    ( 
+     marketPlaceId
+    ) 
+    REFERENCES marketPlace 
+    ( 
+     Id 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE UserEvent 
+    ADD CONSTRAINT UserEvent_User_FK FOREIGN KEY 
     ( 
      userId
     ) 

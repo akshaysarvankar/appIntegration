@@ -123,8 +123,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="uuid" id="C6901623-7B9C-94CC-1F71-F5D55D1B03F7">
 <createdBy>akshay</createdBy>
@@ -177,6 +177,20 @@
 <item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
 </engineerTo>
 <referedAttribute>78389010-1926-551D-2C42-30A7072EDE0A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="statusId" id="3D849912-196F-CAA3-DAC1-A2CD95839768">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 20:07:03 UTC</createdTime>
+<generatorID>0712B09D-6EAE-8C1F-1D90-5647FD76B3F2</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<referedAttribute>65BA0FC2-5E54-9C5F-4B92-B8796980A329</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -15,10 +17,17 @@ import org.springframework.stereotype.Repository;
 
 import com.appdirect.integration.configuration.AppDAOImpl;
 import com.appdirect.integration.configuration.AppJdbcTemplate;
+import com.appdirect.integration.entities.Account;
+import com.appdirect.integration.entities.Status.statusCode;
 import com.appdirect.integration.entities.User;
+import com.appdirect.integration.subscription.dao.account.AccountDAO;
 
 @Repository("UserDAO")
 public class UserDAOImpl extends AppDAOImpl implements UserDAO {
+	
+	@Autowired
+	private AccountDAO accountDAO = null;
+	
 	
 	@Override
 	public PreparedStatementCreator createInsertStatement(Object entity) throws Exception {
@@ -27,37 +36,38 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 				try {
-					User User = (User) entity;
+					User user = (User) entity;
 					int idx=1;
 					PreparedStatement ps = conn.prepareStatement(
-							"INSERT INTO [User] ([firstName],[lastName],[fullName],[email],[language],[locale],[openId],[uuid],[accounhtId])     VALUES" + 
-							" (? ,? ,? ,? ,? ,? ,? ,? ,?)", new String[] {"[UserId]"});
-					if(User.getFirstName()!= null) ps.setString(idx++,User.getFirstName());
+							"INSERT INTO [User] ([firstName],[lastName],[fullName],[email],[language],[locale],[openId],[uuid],[accountId], [statusId])     VALUES" + 
+							" (? ,? ,? ,? ,? ,? ,? ,? ,? ,?)", new String[] {"[UserId]"});
+					if(user.getFirstName()!= null) ps.setString(idx++,user.getFirstName());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getLastName()!= null) ps.setString(idx++,User.getLastName());
+					if(user.getLastName()!= null) ps.setString(idx++,user.getLastName());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getFullName()!= null) ps.setString(idx++,User.getFullName());
+					if(user.getFullName()!= null) ps.setString(idx++,user.getFullName());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getEmail()!= null) ps.setString(idx++,User.getEmail());
+					if(user.getEmail()!= null) ps.setString(idx++,user.getEmail());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getLanguage()!= null) ps.setString(idx++,User.getLanguage());
+					if(user.getLanguage()!= null) ps.setString(idx++,user.getLanguage());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getLocale()!= null) ps.setString(idx++,User.getLocale());
+					if(user.getLocale()!= null) ps.setString(idx++,user.getLocale());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getOpenId()!= null) ps.setString(idx++,User.getOpenId());
+					if(user.getOpenId()!= null) ps.setString(idx++,user.getOpenId());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getUuid()!= null) ps.setString(idx++,User.getUuid());
+					if(user.getUuid()!= null) ps.setString(idx++,user.getUuid());
 					else ps.setNull(idx++, java.sql.Types.VARCHAR);
 					
-					if(User.getAccountId()!= null) ps.setInt(idx++,User.getAccountId());
-					else ps.setNull(idx++, java.sql.Types.INTEGER);
+					ps.setInt(idx++,user.getAccountId());
+					ps.setInt(idx++,user.getStatusId());
+					
 					
 					return ps;
 				}catch(Exception e) {
@@ -69,8 +79,56 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 
 	@Override
 	public PreparedStatementCreator createUpdateStatement(Object entity) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+				try {
+					User user = (User) entity;
+					int idx=1;
+					String query = "UPDATE [User] set [updateDate]= ?" +
+							(user.getFirstName()!= null? ",[firstName] = ?": "")+
+							(user.getLastName()!= null? ",[lastName] = ?": "")+
+							(user.getFullName()!= null? ",[fullName] = ?": "")+
+							(user.getEmail()!= null? ",[email] = ?": "")+
+							(user.getLanguage()!= null? ",[language] = ?": "")+
+							(user.getLocale()!= null? ",[locale] = ?": "")+
+							(user.getOpenId()!= null? ",[openId] = ?": "")+
+							(user.getStatusId()!= null? ",[statusId] = ?": "") +
+							(user.getAccountId()!= null? ",[accountId] = ?": "" )+
+							" where [uuid] = ? and [userId]= ?";
+
+					PreparedStatement ps = conn.prepareStatement(query);
+					
+					ps.setDate(idx++, new java.sql.Date(new Date().getTime()));
+					
+					if(user.getFirstName()!= null) ps.setString(idx++,user.getFirstName());
+					
+					if(user.getLastName()!= null) ps.setString(idx++,user.getLastName());
+					
+					if(user.getFullName()!= null) ps.setString(idx++,user.getFullName());
+					
+					if(user.getEmail()!= null) ps.setString(idx++,user.getEmail());
+					
+					if(user.getLanguage()!= null) ps.setString(idx++,user.getLanguage());
+					
+					if(user.getLocale()!= null) ps.setString(idx++,user.getLocale());
+					
+					if(user.getOpenId()!= null) ps.setString(idx++,user.getOpenId());
+										
+					if(user.getStatusId()!= null) ps.setInt(idx++,user.getStatusId());
+
+					if(user.getAccountId()!= null) ps.setInt(idx++,user.getAccountId());
+					
+					ps.setString(idx++,user.getUuid());
+					ps.setInt(idx++,user.getUserId());
+					
+					return ps;
+				}catch(Exception e) {
+					throw new SQLException(e.getMessage());
+				}
+			}
+		};
 	}
 
 	@Override
@@ -84,8 +142,15 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 		try{
 		assertNull("User cannot be null", object);
 		assertNull("User uuid cannot be null", object.getUuid());
-		KeyHolder key = insertForPrimaryKey(this, object, jTemplate);
-		return getObject(Integer.valueOf(key.getKey().intValue()), jTemplate);
+		assertNull("User account identifier cannot be null", object.getAccountId());
+		assertNull("User status Id cannot be null", object.getStatusId());
+		Account account = accountDAO.getObject(object.getAccountId(), jTemplate);
+		if(account!= null) {
+			KeyHolder key = insertForPrimaryKey(this, object, jTemplate);
+			return getObject(Integer.valueOf(key.getKey().intValue()),object.getAccountId(), jTemplate);
+		}else{
+			throw new Exception("Account in which user to be added is not found");			
+		}
 		}catch(Exception e) {
 			throw new Exception(e.getMessage());
 		}
@@ -93,8 +158,15 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 
 	@Override
 	public User update(User object, AppJdbcTemplate jTemplate) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			assertNull("User cannot be null", object);
+			assertNull("User uuid cannot be null", object.getUuid());
+			assertNull("User user identifier cannot be null", object.getUserId());
+			update(this, object, jTemplate);
+			return getObject(object.getUserId(),object.getAccountId(), jTemplate);
+		}catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
@@ -104,17 +176,17 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User getObject(Object obj, AppJdbcTemplate jTemplate) throws Exception {
+	public User getObject(Object obj, Integer accountId, AppJdbcTemplate jTemplate) throws Exception {
 		try {
 			assertNull("user Id or uuid cannot be null", obj);
 			String query = "SELECT [UserId],[firstName],[lastName],[fullName],[email],[language],"
-					+ "[locale],[openId],[uuid],[createdDate],[updateDate],[accountId]  FROM [User] where ";
+					+ "[locale],[openId],[uuid],[createdDate],[updateDate],[accountId],[statusId]  FROM [User] where ";
 			if(obj instanceof Integer) {
-				query +=" [UserId] = ?";
-				return jTemplate.queryForObject(query, new Object[] { (Integer)obj}, getRowMapperForUser());
+				query +=" [UserId] = ? and [accountId]=?";
+				return jTemplate.queryForObject(query, new Object[] { (Integer)obj, accountId}, getRowMapperForUser());
 			}else if (obj instanceof String) {
-				query +=" [uuid] = ?";
-				return jTemplate.queryForObject(query, new Object[] {(String)obj}, getRowMapperForUser());
+				query +=" [uuid] = ? and [accountId]=?";
+				return jTemplate.queryForObject(query, new Object[] {(String)obj, accountId}, getRowMapperForUser());
 			}
 			return null;
 			}catch(IllegalArgumentException e) {
@@ -173,6 +245,8 @@ public class UserDAOImpl extends AppDAOImpl implements UserDAO {
 				if(rs.getObject("uuid")!= null) {
 					result.setUuid(rs.getString("uuid"));
 				}
+				result.setAccountId(rs.getInt("accountId"));
+				result.setStatusId(rs.getInt("statusId"));
 				return result;
 			}
 			

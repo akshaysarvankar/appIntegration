@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0CC014F9-F481-3FC0-1D3E-F50DDA67A33D" name="EventType">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>4EE10025-2A96-4A60-81D6-1590DD7E7F2C</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>eventType</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="9647EAB0-FA79-6096-C234-C62113103934">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>585463D5-CB75-ABE8-1CC6-1901D3F92C2C</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="code" id="46059CA2-10CD-9A9D-FE1F-167F25EB781A">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>9C147D19-3629-3983-BA67-3F74AB80A400</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="shortDescription" id="59658553-92D7-7EEA-54B9-9D19BBB4FEBD">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>FF800953-CD71-9705-8FCD-DF438BD75BAC</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="7C0E5566-8EF6-4CE7-1BFF-B74416B01E06">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>AF2FE558-17E9-70FA-41CB-942206F386D5</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="startDate" id="2F95E1EE-2C86-CDD3-5552-883C5E99679D">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>C3C3675C-6198-9C99-C428-A8BF6F2293BF</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<defaultValue>getDate()</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="endDate" id="0FBD398E-D04B-899E-A284-95705A05340C">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>EADF0403-0F0F-1569-9836-BC33EB3FFEED</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="69A92540-F7D9-1128-BAB7-31601F26BCAA" name="EventType PK">
+<createdBy>akshay</createdBy>
+<createdTime>2017-07-16 19:08:41 UTC</createdTime>
+<generatorID>1ED9AD11-CD86-8D33-51A2-F62B2463B89C</generatorID>
+<ownerDesignName>DataModel</ownerDesignName>
+<engineerTo>
+<item key="635409CB-2E4A-A494-ACEB-1417E6C2C0E6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9647EAB0-FA79-6096-C234-C62113103934</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

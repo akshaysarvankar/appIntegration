@@ -2,10 +2,10 @@ package com.appdirect.integration.subscription.dao;
 
 import com.appdirect.integration.configuration.AppDAOManager;
 import com.appdirect.integration.entities.Response;
-import com.appdirect.integration.entities.SubscriptionCancel;
-import com.appdirect.integration.entities.SubscriptionChange;
-import com.appdirect.integration.entities.SubscriptionNotice;
-import com.appdirect.integration.entities.SubscriptionOrder;
+import com.appdirect.integration.entities.subscription.SubscriptionCancel;
+import com.appdirect.integration.entities.subscription.SubscriptionChange;
+import com.appdirect.integration.entities.subscription.SubscriptionNotice;
+import com.appdirect.integration.entities.subscription.SubscriptionOrder;
 
 
 public interface  SubscriptionManager extends AppDAOManager {
